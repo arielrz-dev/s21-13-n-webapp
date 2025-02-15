@@ -1,4 +1,5 @@
-import CarouselPrueba from "@/components/CarouselPrueba";
+// import CarouselPrueba from "@/components/CarouselPrueba";
+import Prueba from "@/components/Prueba";
 
 export default function Home() {
 
@@ -6,9 +7,12 @@ export default function Home() {
     <div className="hero bg-base-200 min-h-screen items-start">
       <div className="hero-content text-center">
         <p>HOME</p>
-        <CarouselPrueba />
-        
+        {/* <CarouselPrueba /> */}
+        <Prueba />
+
       </div>
     </div>
+
+ 
   );
 }
