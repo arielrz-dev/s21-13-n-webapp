@@ -20,6 +20,50 @@ export default {
   ],
   daisyui: {
     themes: [
+      {
+        mytheme: {
+
+          "primary": "#b500ff",
+
+          "primary-content": "#f1daff",
+
+          "secondary": "#ff0000",
+
+          "secondary-content": "#160000",
+
+          "accent": "#00ff64",
+
+          "accent-content": "#001603",
+
+          "neutral": "#0e3132",
+
+          "neutral-content": "#cbd2d2",
+
+          "base-100": "#eefff1",
+
+          "base-200": "#cfded2",
+
+          "base-300": "#b1beb3",
+
+          "base-content": "#141614",
+
+          "info": "#0092ff",
+
+          "info-content": "#000816",
+
+          "success": "#009a00",
+
+          "success-content": "#000900",
+
+          "warning": "#ff7f00",
+
+          "warning-content": "#160600",
+
+          "error": "#ed324b",
+
+          "error-content": "#140102",
+        },
+      },
       "light",
       "dark",
       "cupcake",
