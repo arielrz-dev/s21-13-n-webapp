@@ -1,11 +1,28 @@
-package com.app.ecommerceManagementAPI.dto;
+package com.app.ecommerce_management_api.model;
+
+import jakarta.persistence.*;
 
 
+@Entity
+@Table(name = "usuario")
+public class User {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id", nullable = false)
+  private Long id;
 
-public class UserDTO {
+  @Column(unique=true)
   private String username;
   private String password;
-  private String role;
+  private String role; // Añadir campo de rol
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public String getUsername() {
     return username;

@@ -1,8 +1,8 @@
-package com.app.ecommerceManagementAPI.service;
+package com.app.ecommerce_management_api.service;
 
-import com.app.ecommerceManagementAPI.dto.UserDTO;
-import com.app.ecommerceManagementAPI.model.User;
-import com.app.ecommerceManagementAPI.repository.UserRepository;
+import com.app.ecommerce_management_api.dto.UserDTO;
+import com.app.ecommerce_management_api.model.User;
+import com.app.ecommerce_management_api.repository.UserRepository;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

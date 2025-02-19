@@ -1,4 +1,4 @@
-package com.app.ecommerceManagementAPI.security;
+package com.app.ecommerce_management_api.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -8,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.security.Key;
 import java.text.SimpleDateFormat;
@@ -19,6 +20,7 @@ import java.util.logging.Logger;
 @Component
 public class JwtTokenUtil implements Serializable {
 
+  @Serial
   private static final long serialVersionUID = -2550185165626007488L;
   public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
   public static final long REFRESH_TOKEN_VALIDITY = 30 * 24 * 60 * 60; // 30 días

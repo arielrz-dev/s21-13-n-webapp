@@ -1,4 +1,4 @@
-package com.app.ecommerceManagementAPI.controller;
+package com.app.ecommerce_management_api.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -1,4 +1,4 @@
-package com.app.ecommerceManagementAPI.dto;
+package com.app.ecommerce_management_api.dto;
 
 public class JwtRequest {
   private String username;

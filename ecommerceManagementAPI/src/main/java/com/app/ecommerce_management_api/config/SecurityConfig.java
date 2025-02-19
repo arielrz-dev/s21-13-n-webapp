@@ -1,9 +1,9 @@
-package com.app.ecommerceManagementAPI.config;
+package com.app.ecommerce_management_api.config;
 
 
 
-import com.app.ecommerceManagementAPI.security.JwtAuthenticationEntryPoint;
-import com.app.ecommerceManagementAPI.security.JwtRequestFilter;
+import com.app.ecommerce_management_api.security.JwtAuthenticationEntryPoint;
+import com.app.ecommerce_management_api.security.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
