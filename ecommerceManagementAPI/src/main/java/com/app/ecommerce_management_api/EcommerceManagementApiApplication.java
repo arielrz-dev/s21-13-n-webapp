@@ -23,6 +23,6 @@ public class EcommerceManagementApiApplication {
 	}
 	@PostConstruct
 	public void logSwaggerUrl() {
-		logger.info("Swagger UI available at: http://localhost:8080/swagger-ui/api/documentation");
+		logger.info("Swagger UI available at: http://localhost:8080/swagger-ui/index.html");
 	}
 }
