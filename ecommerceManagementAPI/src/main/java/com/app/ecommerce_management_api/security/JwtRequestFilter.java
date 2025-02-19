@@ -34,6 +34,11 @@ public class JwtRequestFilter extends OncePerRequestFilter {
   protected void doFilterInternal(HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain chain)
           throws ServletException, IOException {
 
+    String requestURI = request.getRequestURI();
+    if (requestURI.startsWith("/swagger-ui") || requestURI.startsWith("/v3/api-docs") || requestURI.startsWith("/doc/swagger-ui.html")) {
+      chain.doFilter(request, response);
+      return;
+    }
     final String requestTokenHeader = request.getHeader("Authorization");
 
     String username = null;
@@ -44,9 +49,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
       try {
         username = jwtTokenUtil.getUsernameFromToken(jwtToken);
       } catch (IllegalArgumentException e) {
-        logger.fatal("Unable to get JWT Token");
+        logger.error("Unable to get JWT Token");
       } catch (ExpiredJwtException e) {
-        logger.fatal("JWT Token has expired");
+        logger.error("JWT Token has expired");
       }
     } else {
       logger.warn("JWT Token does not begin with Bearer String");
@@ -55,7 +60,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
       UserDetails userDetails = this.jwtUserDetailsService.loadUserByUsername(username);
 
-      if (jwtTokenUtil.validateToken(jwtToken, userDetails)) {
+      if (Boolean.TRUE.equals(jwtTokenUtil.validateToken(jwtToken, userDetails))) {
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
                 userDetails, null, userDetails.getAuthorities());
         usernamePasswordAuthenticationToken

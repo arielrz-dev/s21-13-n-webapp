@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -43,11 +44,13 @@ public class SecurityConfig {
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-    http.csrf(csrf -> csrf.disable())
+    http.csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(authz -> authz
                     .requestMatchers("/api/v1/authenticate", "/api/v1/register").permitAll()
-                    .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
-                    .requestMatchers("/api/v1/user/**").hasRole("USER")
+//                    .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
+//                    .requestMatchers("/api/v1/user/**").hasRole("USER")
+                    .requestMatchers("/test/**").permitAll()
+                    .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
                     .anyRequest().authenticated()
             )
             .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtAuthenticationEntryPoint))
