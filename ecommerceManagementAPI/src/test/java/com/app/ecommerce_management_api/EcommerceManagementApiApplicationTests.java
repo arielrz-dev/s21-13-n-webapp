@@ -1,4 +1,4 @@
-package com.app.ecommerceManagementAPI;
+package com.app.ecommerce_management_api;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.jupiter.api.BeforeAll;

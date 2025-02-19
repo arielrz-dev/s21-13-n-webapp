@@ -1,13 +1,12 @@
-package com.app.ecommerceManagementAPI.controller;
+package com.app.ecommerce_management_api.controller;
 
-import com.app.ecommerceManagementAPI.dto.JwtRefreshRequest;
-import com.app.ecommerceManagementAPI.dto.JwtRequest;
-import com.app.ecommerceManagementAPI.dto.JwtResponse;
-import com.app.ecommerceManagementAPI.dto.UserDTO;
-import com.app.ecommerceManagementAPI.model.User;
-import com.app.ecommerceManagementAPI.security.JwtTokenUtil;
-import com.app.ecommerceManagementAPI.service.JwtUserDetailsService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.app.ecommerce_management_api.dto.JwtRefreshRequest;
+import com.app.ecommerce_management_api.dto.JwtRequest;
+import com.app.ecommerce_management_api.dto.JwtResponse;
+import com.app.ecommerce_management_api.dto.UserDTO;
+import com.app.ecommerce_management_api.model.User;
+import com.app.ecommerce_management_api.security.JwtTokenUtil;
+import com.app.ecommerce_management_api.service.JwtUserDetailsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -24,25 +23,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class JwtAuthenticationController {
 
-  @Autowired
-  private AuthenticationManager authenticationManager;
+  private final AuthenticationManager authenticationManager;
 
-  @Autowired
-  private JwtTokenUtil jwtTokenUtil;
+  private final JwtTokenUtil jwtTokenUtil;
 
-  @Autowired
-  private JwtUserDetailsService userDetailsService;
+  private final JwtUserDetailsService userDetailsService;
 
-//  @PostMapping("/authenticate")
-//  public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
-//    authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
-//    final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
-//    final String token = jwtTokenUtil.generateToken(userDetails);
-//    return ResponseEntity.ok(new JwtResponse(token));
-//  }
+  public JwtAuthenticationController(AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil, JwtUserDetailsService userDetailsService) {
+    this.authenticationManager = authenticationManager;
+    this.jwtTokenUtil = jwtTokenUtil;
+    this.userDetailsService = userDetailsService;
+  }
+
 
   @PostMapping("/authenticate")
-  public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
+  public ResponseEntity<JwtResponse> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
     authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
     final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
     final String token = jwtTokenUtil.generateToken(userDetails);
@@ -67,8 +62,7 @@ public class JwtAuthenticationController {
     try {
       User savedUser = userDetailsService.save(user);
       return ResponseEntity.ok(savedUser);
-    }
-    catch (RuntimeException e){
+    } catch (RuntimeException e) {
       return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
     }
   }

@@ -1,12 +1,12 @@
-package com.app.ecommerceManagementAPI.security;
+package com.app.ecommerce_management_api.security;
 
-import com.app.ecommerceManagementAPI.service.JwtUserDetailsService;
+import com.app.ecommerce_management_api.service.JwtUserDetailsService;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,14 +19,19 @@ import java.io.IOException;
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
-  @Autowired
-  private JwtUserDetailsService jwtUserDetailsService;
 
-  @Autowired
-  private JwtTokenUtil jwtTokenUtil;
+  private final JwtUserDetailsService jwtUserDetailsService;
+
+
+  private final JwtTokenUtil jwtTokenUtil;
+
+  public JwtRequestFilter(JwtUserDetailsService jwtUserDetailsService, JwtTokenUtil jwtTokenUtil) {
+    this.jwtUserDetailsService = jwtUserDetailsService;
+    this.jwtTokenUtil = jwtTokenUtil;
+  }
 
   @Override
-  protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+  protected void doFilterInternal(HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain chain)
           throws ServletException, IOException {
 
     final String requestTokenHeader = request.getHeader("Authorization");
@@ -39,9 +44,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
       try {
         username = jwtTokenUtil.getUsernameFromToken(jwtToken);
       } catch (IllegalArgumentException e) {
-        System.out.println("Unable to get JWT Token");
+        logger.fatal("Unable to get JWT Token");
       } catch (ExpiredJwtException e) {
-        System.out.println("JWT Token has expired");
+        logger.fatal("JWT Token has expired");
       }
     } else {
       logger.warn("JWT Token does not begin with Bearer String");
