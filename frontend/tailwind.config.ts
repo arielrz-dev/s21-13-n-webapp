@@ -13,6 +13,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        adlam: ['ADLaM Display', 'sans-serif'],
+      },
     },
   },
   plugins: [
@@ -21,47 +24,32 @@ export default {
   daisyui: {
     themes: [
       {
-        mytheme: {
+        heladeria: {
+          "color-scheme": "light",
+          "primary": "#e96d7b",
+          "secondary": "#a991f7",
+          "accent": "#66b1b3",
+          "neutral": "#af4670",
+          "neutral-content": "#f0d6e8",
+          "base-100": "#fae7f4",
+          "base-content": "#632c3b",
+          "info": "#2563eb",
+          "success": "#16a34a",
+          "warning": "#d97706",
+          "error": "oklch(73.07% 0.207 27.33)",
+          // "--rounded-btn": "1.9rem",
+          "--tab-radius": "0.7rem",
 
-          "primary": "#b500ff",
 
-          "primary-content": "#f1daff",
-
-          "secondary": "#ff0000",
-
-          "secondary-content": "#160000",
-
-          "accent": "#00ff64",
-
-          "accent-content": "#001603",
-
-          "neutral": "#0e3132",
-
-          "neutral-content": "#cbd2d2",
-
-          "base-100": "#eefff1",
-
-          "base-200": "#cfded2",
-
-          "base-300": "#b1beb3",
-
-          "base-content": "#141614",
-
-          "info": "#0092ff",
-
-          "info-content": "#000816",
-
-          "success": "#009a00",
-
-          "success-content": "#000900",
-
-          "warning": "#ff7f00",
-
-          "warning-content": "#160600",
-
-          "error": "#ed324b",
-
-          "error-content": "#140102",
+           //"primary-content": "#f1daff",
+          // "secondary-content": "#160000", 
+          // "accent-content": "#001603",
+           "base-200": "#fbf0f4",//"#cfded2", // Cambia el color de background del contenido (verde pastel)
+          // "base-300": "#b1beb3",
+          // "info-content": "#000816",
+          // "success-content": "#000900",
+          // "warning-content": "#160600",
+          // "error-content": "#140102",
         },
       },
       "light",

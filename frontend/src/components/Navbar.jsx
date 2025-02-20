@@ -4,6 +4,13 @@ import DropdownMenu from './DropdownMenu';
 import Cart from './Cart';
 import UserAvatar from './UserAvatar';
 import ThemeMenu from './UI/ThemeMenu';
+import { ADLaM_Display } from "next/font/google";
+import  LoginModal from './LoginModal';
+
+const adlamDisplay = ADLaM_Display({
+    weight: "400",
+    subsets: ["latin"],
+  });
 
 export default function Navbar() {
     const menuItems = [
@@ -39,7 +46,10 @@ export default function Navbar() {
                     </div>
                     <DropdownMenu items={menuItems} />
                 </div>
-                <Link href="/" className="mx-5 text-xl">Logo Heladeria</Link>
+                <Link href="/" className={`${adlamDisplay.className} mx-5 text-2xl`}>
+                <span className="text-black">Fres</span>
+                <span className="text-pink-600">ko</span>
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -65,11 +75,13 @@ export default function Navbar() {
                     ))}
                 </ul>
             </div>
-            <div className="navbar-end mr-5">
+            <div className="navbar-end">
                 <div className="flex gap-5">
-                    <ThemeMenu />
+                    {/* <ThemeMenu /> */}
+                    <LoginModal />
+         
                     <Cart />
-                    <UserAvatar />
+                    {/* <UserAvatar /> */}
                 </div>
             </div>
         </div>
