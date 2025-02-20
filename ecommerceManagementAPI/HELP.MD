@@ -30,13 +30,13 @@ ___
 3. #### ***IMPORTANTE***: *Habilitar el soporte para archivos .env en el IDE*
 ___ 
 
-4. **Construir las imagenes de Docker:**
+1. **Construir las imagenes de Docker:**
     En la raiz del proyecto donde se ubica el archivo de docker-compose.yml ejecutar: 
     ```bash
     docker-compose up -d
     ```
 
-5. **Salida**
+2. **Salida**
     Al ejecutar docker-compose up, Docker descarga la imagen de PostgreSQL, crea y configura un contenedor con la base de datos, y asegura la persistencia y accesibilidad de los datos
     ``` [+] Running 15/1
         ✔ login-register-database Pulled                                                                                                                                                                                  14.4s 
@@ -45,7 +45,7 @@ ___
         ✔ Volume "ecommercemanagementapi_db_data"                     Created                                                                                                                                              0.0s 
         ✔ Container ecommercemanagementapi-login-register-database-1  Started       
     ```
-6. **Correr el siguiente comando de maven y correr el proyecto**
+3. **Correr el siguiente comando de maven y correr el proyecto**
     ```bash
     mvn clean
     ```
