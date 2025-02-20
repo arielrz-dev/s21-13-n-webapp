@@ -20,9 +20,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @RequestMapping("/api/v1")
 @RestController
 @Tag(name = "JWT Authentication Controller", description = "Endpoints for JWT authentication and user management")
