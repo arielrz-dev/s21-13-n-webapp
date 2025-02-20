@@ -13,6 +13,16 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
-#logging:
-#  level:
-#    org.springframework: DEBUG
+logging:
+  level:
+    root: INFO
+    com.app.ecommerce_management_api: DEBUG
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /index.html
+  #    path: /swagger-ui-custom.html
+  packages-to-scan: com.app.ecommerce_management_api

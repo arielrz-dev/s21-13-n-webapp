@@ -7,6 +7,8 @@ import com.app.ecommerce_management_api.dto.UserDTO;
 import com.app.ecommerce_management_api.model.User;
 import com.app.ecommerce_management_api.security.JwtTokenUtil;
 import com.app.ecommerce_management_api.service.JwtUserDetailsService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/api/v1")
 @RestController
+@Tag(name = "JWT Authentication Controller", description = "Endpoints for JWT authentication and user management")
 public class JwtAuthenticationController {
 
   private final AuthenticationManager authenticationManager;
@@ -37,6 +40,7 @@ public class JwtAuthenticationController {
 
 
   @PostMapping("/authenticate")
+  @Operation(summary = "Authenticate user", description = "Authenticates a user and returns a JWT token and refresh token")
   public ResponseEntity<JwtResponse> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
     authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
     final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
@@ -46,6 +50,7 @@ public class JwtAuthenticationController {
   }
 
   @PostMapping("/refresh-token")
+  @Operation(summary = "Refresh JWT token", description = "Refreshes the JWT token using the provided refresh token")
   public ResponseEntity<?> refreshToken(@RequestBody JwtRefreshRequest refreshRequest) {
     String refreshToken = refreshRequest.getRefreshToken();
     if (Boolean.TRUE.equals(jwtTokenUtil.isTokenExpired(refreshToken))) {
@@ -58,6 +63,7 @@ public class JwtAuthenticationController {
   }
 
   @PostMapping("/register")
+  @Operation(summary = "Register new user", description = "Registers a new user in the system")
   public ResponseEntity<?> saveUser(@RequestBody UserDTO user) {
     try {
       User savedUser = userDetailsService.save(user);
