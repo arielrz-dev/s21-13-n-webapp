@@ -129,5 +129,3 @@ $env:SPRING_PROFILES_ACTIVE="prod"
 ```bash
 ./mvnw spring-boot:run
 ```
-
-Espero que esto te sea útil. ¿Hay algo más en lo que pueda ayudarte?
