@@ -2,8 +2,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FaUserLarge } from "react-icons/fa6";
-import Input from './UI/Input';  
+import Input from './UI/Input';
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import LINK from 'next/link';
 
 export default function LoginModal() {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -48,10 +49,10 @@ export default function LoginModal() {
                 <div className="modal-box w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
                     {/* Botón para cerrar el modal */}
                     <div className="flex justify-end">
-                        <label htmlFor="my_modal_6" className="hover:text-red-500"><IoMdCloseCircleOutline size={26} /></label>
+                        <label htmlFor="my_modal_6" className="hover:text-red-500 text-black"><IoMdCloseCircleOutline size={26} /></label>
                     </div>
 
-                    <h3 className="text-lg font-bold text-center">Iniciar sesión</h3>
+                    <h3 className="text-lg font-bold text-center">INICIAR SESIÓN</h3>
                     <form onSubmit={handleSubmit(onSubmit)} className="py-4">
                         <Input
                             id="email"
@@ -61,8 +62,8 @@ export default function LoginModal() {
                             required="Este campo es obligatorio"
                             pattern={/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i}
                             errorMessage={errors.email && errors.email.message}
-                            placeholder={"correo@ejemplo.com"}
-                            
+                            placeholder={"correo@dominio.com"}
+
                         />
                         <Input
                             id="password"
@@ -78,9 +79,25 @@ export default function LoginModal() {
                             type="submit"
                             className="btn w-full bg-pink-600 text-white hover:bg-pink-700"
                         >
-                            Iniciar sesión
+                            INICIAR SESIÓN
                         </button>
+                        <span className='font-semibold text-xs text-black'>
+                            <LINK href="/" className=' hover:text-pink-700 underline'>
+                                ¿olvidaste tu contraseña?
+                            </LINK>
+                        </span>
                     </form>
+                    <div className="divider">
+                        <span className='text-pink-500 font-semibold text-xl'>O</span>
+                    </div>
+                    <div className=''>
+                        <span className='text-black text-sm'>¿No tienes una cuenta?       </span>
+                        <LINK href="/" className='font-semibold text-black hover:text-pink-700 underline'>
+                            Crear cuenta
+                        </LINK>
+
+                    </div>
+
                 </div>
             </div>
         </div>

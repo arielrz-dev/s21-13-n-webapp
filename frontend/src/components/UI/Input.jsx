@@ -4,7 +4,7 @@ import React from 'react';
 const Input = ({ id, label, type, register, required, pattern, minLength, errorMessage, placeholder }) => {
     return (
         <div className="mb-4">
-            <label htmlFor={id} className="block text-sm font-medium text-gray-700">{label}</label>
+            <label htmlFor={id} className="block text-sm font-medium text-gray-700 pb-2">{label}</label>
             <input
                 id={id}
                 type={type}
