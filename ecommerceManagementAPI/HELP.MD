@@ -129,3 +129,8 @@ $env:SPRING_PROFILES_ACTIVE="prod"
 ```bash
 ./mvnw spring-boot:run
 ```
+### 4 Ejecutar el siguiente comando
+
+```bash
+.\run-app.ps1 -profile "dev"
+```
