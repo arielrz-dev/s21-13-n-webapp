@@ -10,7 +10,11 @@ public class WebConfig implements WebMvcConfigurer {
   @Override
   public void addCorsMappings(CorsRegistry registry) {
     registry.addMapping("/**")
-            .allowedOrigins("https://heladeria-deploy.vercel.app")
+            .allowedOrigins(
+                    "https://heladeria-deploy.vercel.app",
+                    "http://localhost:3000",
+                    "http://localhost:3001"
+            ) // 👈 Pasamos todos los dominios en un solo llamado
             .allowedMethods("GET", "POST", "PUT", "DELETE")
             .allowedHeaders("*")
             .allowCredentials(true);
