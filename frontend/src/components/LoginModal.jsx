@@ -11,11 +11,10 @@ export default function LoginModal() {
 
     // Manejamos Formulario
     const onSubmit = async (data) => {
-        // Ver la informacion enviada
         console.log(data);
 
         try {
-            const response = await fetch('/api/login', {
+            const response = await fetch('https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/v1/authenticate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -26,7 +25,7 @@ export default function LoginModal() {
             if (response.ok) {
                 const result = await response.json();
                 console.log('Login exitoso:', result);
-                // Redirigir al usuario,...
+                // Redirigir al usuario...
             } else {
                 console.error('Error al iniciar sesión');
             }
@@ -55,15 +54,13 @@ export default function LoginModal() {
                     <h3 className="text-lg font-bold text-center">INICIAR SESIÓN</h3>
                     <form onSubmit={handleSubmit(onSubmit)} className="py-4">
                         <Input
-                            id="email"
-                            label="Correo electrónico"
-                            type="email"
+                            id="username"
+                            label="Nombre de usuario"
+                            type="text"
                             register={register}
                             required="Este campo es obligatorio"
-                            pattern={/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i}
-                            errorMessage={errors.email && errors.email.message}
-                            placeholder={"correo@dominio.com"}
-
+                            errorMessage={errors.username && errors.username.message}
+                            placeholder={"Tu nombre de usuario"}
                         />
                         <Input
                             id="password"
@@ -82,8 +79,8 @@ export default function LoginModal() {
                             INICIAR SESIÓN
                         </button>
                         <span className='font-semibold text-xs text-black'>
-                            <LINK href="/" className=' hover:text-pink-700 underline'>
-                                ¿olvidaste tu contraseña?
+                            <LINK href="/" className='hover:text-pink-700 underline'>
+                                ¿Olvidaste tu contraseña?
                             </LINK>
                         </span>
                     </form>
@@ -91,13 +88,11 @@ export default function LoginModal() {
                         <span className='text-pink-500 font-semibold text-xl'>O</span>
                     </div>
                     <div className=''>
-                        <span className='text-black text-sm'>¿No tienes una cuenta?       </span>
+                        <span className='text-black text-sm'>¿No tienes una cuenta? </span>
                         <LINK href="/" className='font-semibold text-black hover:text-pink-700 underline'>
                             Crear cuenta
                         </LINK>
-
                     </div>
-
                 </div>
             </div>
         </div>

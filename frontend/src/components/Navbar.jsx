@@ -6,6 +6,7 @@ import UserAvatar from './UserAvatar';
 import ThemeMenu from './UI/ThemeMenu';
 import { ADLaM_Display } from "next/font/google";
 import  LoginModal from './LoginModal';
+import AuthModal from './AuthModal';
 
 const adlamDisplay = ADLaM_Display({
     weight: "400",
@@ -78,7 +79,8 @@ export default function Navbar() {
             <div className="navbar-end">
                 <div className="flex gap-5">
                     {/* <ThemeMenu /> */}
-                    <LoginModal />
+                    {/* <LoginModal /> */}
+                    <AuthModal />
          
                     <Cart />
                     {/* <UserAvatar /> */}
