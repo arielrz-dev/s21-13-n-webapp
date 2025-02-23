@@ -20,13 +20,12 @@ export default function Navbar() {
             label: 'Menu', 
             href: '/menu', 
             submenu: [
-                { label: 'Arma tu Helado', href: '/parent/submenu1' },
                 { label: 'Helados', href: '/parent/submenu2' },
                 { label: 'Postres', href: '/parent/submenu2' },
                 { label: 'Tortas', href: '/parent/submenu2' },
             ],
         },
-        { label: 'Item 3', href: '/item3' },
+        { label: 'Arma tu helado', href: '/item3' },
     ];
 
     return (
