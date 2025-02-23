@@ -66,7 +66,7 @@ export default function Carousel() {
       </button>
 
       {/* Carrusel */}
-      <div ref={sliderRef} className="keen-slider w-full flex justify-start mx-10">
+      <div ref={sliderRef} className="keen-slider w-full flex justify-between items-center mx-12">
         {products.map((product) => (
           <ProductCard
             key={product.id}

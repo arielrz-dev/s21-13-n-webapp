@@ -12,7 +12,7 @@ const ProductCard = ({ id, name, price, image, description }: ProductCardProps) 
     
   return (
     <div className="keen-slider__slide p-5">
-      <div className="card w-56 bg-white shadow-xl border-4 border-pink-600 min-h-72">
+      <div className="card w-56 bg-white shadow-xl border-4 border-pink-600 min-h-[300px] max-h-[300px] rounded-xl overflow-hidden">
         <figure className="relative mx-2 mt-2 rounded-xl overflow-hidden h-40 min-h-40 max-h-40">
           <img
             src={image}
