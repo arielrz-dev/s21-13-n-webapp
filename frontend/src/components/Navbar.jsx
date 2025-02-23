@@ -17,11 +17,13 @@ export default function Navbar() {
     const menuItems = [
         { label: 'Item 1', href: '/item1' },
         { 
-            label: 'Parent', 
-            href: '/parent', 
+            label: 'Menu', 
+            href: '/menu', 
             submenu: [
-                { label: 'Submenu 1', href: '/parent/submenu1' },
-                { label: 'Submenu 2', href: '/parent/submenu2' },
+                { label: 'Arma tu Helado', href: '/parent/submenu1' },
+                { label: 'Helados', href: '/parent/submenu2' },
+                { label: 'Postres', href: '/parent/submenu2' },
+                { label: 'Tortas', href: '/parent/submenu2' },
             ],
         },
         { label: 'Item 3', href: '/item3' },
@@ -53,7 +55,7 @@ export default function Navbar() {
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 z-[50]">
                     {menuItems.map((item, index) => (
                         <li key={index}>
                             {item.submenu ? (
