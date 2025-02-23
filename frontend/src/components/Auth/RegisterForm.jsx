@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Input from "../UI/Input";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 
+
 export function RegisterForm({ setCurrentForm }) {
   const {
     register,
@@ -30,7 +31,9 @@ export function RegisterForm({ setCurrentForm }) {
       if (response.ok) {
         const result = await response.json();
         console.log("Registro exitoso:", result);
-        // Aquí podrías redirigir al login o mostrar un mensaje de éxito
+       
+        // Luego podemos redirigir al usuario a la página de inicio de sesión
+
       } else {
         console.error("Error en el registro");
       }
