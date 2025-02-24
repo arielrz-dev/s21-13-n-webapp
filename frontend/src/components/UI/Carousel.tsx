@@ -25,17 +25,17 @@ export default function Carousel() {
       loop: products.length >= 1, // Siempre habilita el loop si hay al menos un producto
       slides: { 
         perView: "auto", 
-        spacing: 10 
+        spacing: 5 
       },
       breakpoints: {
         "(min-width: 375px)": {
           slides: { perView: 1.2, spacing: 5 }
         },
         "(min-width: 640px)": {
-          slides: { perView: 2, spacing: 10 }
+          slides: { perView: 2.3, spacing: 5 }
         },
         "(min-width: 1024px)": {
-          slides: { perView: 4, spacing: 10 }
+          slides: { perView: 4, spacing: 5 }
         }
       },
       slideChanged() {
