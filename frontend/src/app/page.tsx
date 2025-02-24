@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <IceCreamCard />
-      <div className="flex justify-center items-center mt-16 mx-28">
+      <div className="flex justify-center items-center lg:mt-16 lg:mx-28">
         <Carousel />
       </div>
     </>

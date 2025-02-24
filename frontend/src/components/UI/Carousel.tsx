@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; // Usa los íconos de React Icons
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Poppins } from "next/font/google";
-import ProductCard from "../../components/ProductCard"; // Importa el nuevo componente
+import ProductCard from "../../components/ProductCard";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600"] });
 
@@ -22,11 +22,25 @@ export default function Carousel() {
 
   const [sliderRef, instanceRef] = useKeenSlider(
     {
-      loop: products.length >= 4, // Solo habilita el loop si hay suficientes productos
-      slides: { perView: 4, spacing: 10 }, // Mostrar 4 productos por vez
+      loop: products.length >= 1, // Siempre habilita el loop si hay al menos un producto
+      slides: { 
+        perView: "auto", 
+        spacing: 10 
+      },
+      breakpoints: {
+        "(min-width: 375px)": {
+          slides: { perView: 1.2, spacing: 5 }
+        },
+        "(min-width: 640px)": {
+          slides: { perView: 2, spacing: 10 }
+        },
+        "(min-width: 1024px)": {
+          slides: { perView: 4, spacing: 10 }
+        }
+      },
       slideChanged() {
-        console.log('El slide ha cambiado');
-      }
+        console.log("El slide ha cambiado");
+      },
     }
   );
 
