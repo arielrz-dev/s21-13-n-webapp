@@ -1,12 +1,13 @@
-import React from 'react';
+"use client";
+import React, { useEffect } from "react";
+import useAuthStore from "@/store/authStore";
 import Link from 'next/link';
 import DropdownMenu from './DropdownMenu';
 import Cart from './Cart';
 import UserAvatar from './UserAvatar';
-import ThemeMenu from './UI/ThemeMenu';
 import { ADLaM_Display } from "next/font/google";
-import  LoginModal from './LoginModal';
 import AuthModal from './AuthModal';
+import Cookies from 'js-cookie';
 
 const adlamDisplay = ADLaM_Display({
     weight: "400",
@@ -14,6 +15,35 @@ const adlamDisplay = ADLaM_Display({
   });
 
 export default function Navbar() {
+    const { user, token } = useAuthStore(); // Obtenemos el usuario y el token
+
+
+    const fetchUserProfile = async () => {
+        const token = Cookies.get("token");
+        if (!token) return;
+    
+        try {
+          const response = await fetch("/api/profile", {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+    
+          if (response.ok) {
+            const userData = await response.json();
+            useAuthStore.getState().setUser(userData);
+          }
+        } catch (error) {
+          console.error("Error al obtener perfil:", error);
+        }
+      };
+    
+      useEffect(() => {
+        if (token && !user) {
+          fetchUserProfile();
+        }
+      }, [token]);
+
+
+
     const menuItems = [
         { label: 'Item 1', href: '/item1' },
         { 
@@ -48,7 +78,7 @@ export default function Navbar() {
                     </div>
                     <DropdownMenu items={menuItems} />
                 </div>
-                <Link href="/" className={`${adlamDisplay.className} mx-5 text-2xl`}>
+                <Link href="/" className={`${adlamDisplay.className} mx-5 text-2xl lg:text-4xl`}>
                 <span className="text-black">Fres</span>
                 <span className="text-pink-600">ko</span>
                 </Link>
@@ -78,10 +108,11 @@ export default function Navbar() {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="flex gap-5">
+                <div className="flex lg:gap-4">
                     {/* <ThemeMenu /> */}
                     {/* <LoginModal /> */}
-                    <AuthModal />
+                   
+                    {user ? <UserAvatar user={user} /> : <AuthModal />}
          
                     <Cart />
                     {/* <UserAvatar /> */}
