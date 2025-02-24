@@ -3,6 +3,7 @@ package com.app.ecommerce_management_api.service;
 import com.app.ecommerce_management_api.dto.UserDTO;
 import com.app.ecommerce_management_api.model.User;
 import com.app.ecommerce_management_api.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +18,7 @@ import java.util.Set;
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
 
+  @Autowired
   private final UserRepository userRepository;
 
   public JwtUserDetailsService(UserRepository userRepository) {

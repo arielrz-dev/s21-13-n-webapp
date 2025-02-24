@@ -2,10 +2,13 @@ package com.app.ecommerce_management_api.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
-@Table(name = "usuario")
-public class User {
+@Table(name = "users")
+public class    User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
@@ -15,6 +18,12 @@ public class User {
   private String username;
   private String password;
   private String role; // Añadir campo de rol
+
+  private String email;
+
+  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Address> addresses = new ArrayList<>();
+
 
   public Long getId() {
     return id;
