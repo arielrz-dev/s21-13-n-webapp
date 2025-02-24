@@ -5,6 +5,8 @@ import { FaUserLarge } from "react-icons/fa6";
 import Input from "../UI/Input";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import Link from "next/link";
+import useAuthStore from "@/store/authStore"; // Importamos el store
+import { useRouter } from "next/navigation"; // Importamos useRouter
 
 export function LoginForm({ setCurrentForm }) {
   const {
@@ -12,6 +14,9 @@ export function LoginForm({ setCurrentForm }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const login = useAuthStore((state) => state.login); // Obtenemos la función login
+  const router = useRouter(); // Usamos el hook useRouter
 
   // Manejamos el envío del formulario
   const onSubmit = async (data) => {
@@ -31,8 +36,12 @@ export function LoginForm({ setCurrentForm }) {
 
       if (response.ok) {
         const result = await response.json();
-        console.log("Login exitoso:", result);
-        // Aquí puedes manejar la redirección o guardar el token en localStorage
+        console.log("Login exitoso:", result.jwtToken);
+        // --------------
+        login(result.jwtToken); // Guardamos el token en Zustand y Cookies
+
+        // Redirigimos al usuario 
+        router.push("/profile"); //  redirigir a profile
       } else {
         console.error("Error al iniciar sesión");
       }
