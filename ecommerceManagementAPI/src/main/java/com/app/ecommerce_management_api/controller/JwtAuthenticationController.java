@@ -5,10 +5,12 @@ import com.app.ecommerce_management_api.dto.JwtRequest;
 import com.app.ecommerce_management_api.dto.JwtResponse;
 import com.app.ecommerce_management_api.dto.UserDTO;
 import com.app.ecommerce_management_api.model.User;
+import com.app.ecommerce_management_api.repository.UserRepository;
 import com.app.ecommerce_management_api.security.JwtTokenUtil;
 import com.app.ecommerce_management_api.service.JwtUserDetailsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,10 +18,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/api/v1")
 @RestController
@@ -31,11 +30,13 @@ public class JwtAuthenticationController {
   private final JwtTokenUtil jwtTokenUtil;
 
   private final JwtUserDetailsService userDetailsService;
+  private final UserRepository userRepository;
 
-  public JwtAuthenticationController(AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil, JwtUserDetailsService userDetailsService) {
+  public JwtAuthenticationController(AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil, JwtUserDetailsService userDetailsService, UserRepository userRepository) {
     this.authenticationManager = authenticationManager;
     this.jwtTokenUtil = jwtTokenUtil;
     this.userDetailsService = userDetailsService;
+    this.userRepository = userRepository;
   }
 
 
@@ -71,6 +72,16 @@ public class JwtAuthenticationController {
     } catch (RuntimeException e) {
       return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
     }
+  }
+
+  @GetMapping("/info")
+  @Operation(summary = "Get user info", description = "Returns the information of the logged-in user")
+  public ResponseEntity<?> getUserInfo(HttpServletRequest request) {
+    String token = request.getHeader("Authorization").substring(7);
+    String username = jwtTokenUtil.getUsernameFromToken(token);
+    UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+    User userInfo = userRepository.findByUsername(userDetails.getUsername());
+      return ResponseEntity.ok(userInfo);
   }
 
   private void authenticate(String username, String password) throws Exception {
