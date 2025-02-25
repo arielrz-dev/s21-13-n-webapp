@@ -108,4 +108,6 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
-# End of https://www.toptal.com/developers/gitignore/api/maven,intellij+all
+# End of https://www.toptal.com/developers/gitignore/api/maven,intellij+allhs_err_pid*.log
+hs_err_pid1376.log
+.env.development
