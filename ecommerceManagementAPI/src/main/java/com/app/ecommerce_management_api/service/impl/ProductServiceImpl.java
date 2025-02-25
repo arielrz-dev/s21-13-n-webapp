@@ -1,0 +1,24 @@
+package com.app.ecommerce_management_api.service.impl;
+
+import com.app.ecommerce_management_api.model.Product;
+import com.app.ecommerce_management_api.repository.ProductRepository;
+import com.app.ecommerce_management_api.service.ProductService;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ProductServiceImpl implements ProductService {
+
+  private final ProductRepository productRepository;
+
+  public ProductServiceImpl(ProductRepository productRepository) {
+    this.productRepository = productRepository;
+  }
+
+  @Override
+  public List<Product> getProducts(Specification spec) {
+    return productRepository.findAll(spec);
+  }
+}

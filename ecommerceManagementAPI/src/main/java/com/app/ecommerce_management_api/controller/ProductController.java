@@ -1,14 +1,17 @@
 package com.app.ecommerce_management_api.controller;
 
+import com.app.ecommerce_management_api.dto.ProductFilter;
 import com.app.ecommerce_management_api.model.Product;
-import com.app.ecommerce_management_api.repository.ProductRepository;
+import com.app.ecommerce_management_api.service.ProductService;
 import com.app.ecommerce_management_api.specification.ProductSpecification;
+import io.swagger.v3.oas.annotations.Operation;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -16,20 +19,17 @@ import java.util.List;
 
 public class ProductController {
 
-  private final ProductRepository productRepository;
+  private final ProductService productService;
 
-  public ProductController(ProductRepository productRepository) {
-    this.productRepository = productRepository;
+  public ProductController(ProductService productService) {
+    this.productService= productService;
   }
 
+  @Operation(summary = "Get products", description = "Returns a list of products based on the provided filter criteria")
   @GetMapping
-  public List<Product> getProducts(
-          @RequestParam(required = false) String name,
-          @RequestParam(required = false) String type,
-          @RequestParam(required = false) String brand,
-          @RequestParam(required = false) BigDecimal priceMin,
-          @RequestParam(required = false) BigDecimal priceMax) {
-    ProductSpecification spec = new ProductSpecification(name, type, brand, priceMin, priceMax);
-    return productRepository.findAll(spec);
+  public ResponseEntity<List<Product>> getProducts(ProductFilter filter) {
+    Specification spec = new ProductSpecification(filter);
+    List<Product> products = productService.getProducts(spec);
+    return ResponseEntity.ok(products);
   }
 }
