@@ -1,7 +1,5 @@
 package com.app.ecommerce_management_api.config;
 
-import com.app.ecommerce_management_api.dto.UserDTO;
-import com.app.ecommerce_management_api.model.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

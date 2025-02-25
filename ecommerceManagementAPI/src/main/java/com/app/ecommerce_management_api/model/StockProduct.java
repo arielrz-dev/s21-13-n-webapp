@@ -1,5 +1,6 @@
 package com.app.ecommerce_management_api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class StockProduct {
 
     @OneToOne
     @JoinColumn(name = "id_product", nullable = false, unique = true)
+    @JsonBackReference
     private Product product;
 
 }
