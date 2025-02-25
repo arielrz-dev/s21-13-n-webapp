@@ -29,8 +29,8 @@ public class Product {
     private String imageUrl;
     private Instant createdAt;
 
-    @OneToOne
-    @JoinColumn(name = "id_stock_product", nullable = false, unique = true)
+
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
     private StockProduct stockProduct;
 
 }
