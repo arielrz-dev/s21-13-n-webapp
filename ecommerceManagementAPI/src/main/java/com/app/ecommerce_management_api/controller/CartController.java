@@ -42,18 +42,6 @@ public class CartController {
     }
   }
 
-//  @PutMapping("/updatePrice")
-//  public ResponseEntity<?> updatePrice(@RequestParam Long cartId, @RequestParam BigDecimal newPrice) throws Exception {
-//    try {
-//      cartService.updatePrice(cartId,newPrice);
-//      return ResponseEntity.ok("Cart ammount updated successfully");
-//
-//    }
-//    catch (Exception e){
-//      throw new Exception("Error al actualizar el precio",e);
-//    }
-//  }
-
   @PutMapping("/updatePrice")
   public ResponseEntity<?> updatePrice(@RequestParam Long cartId, @RequestParam BigDecimal newPrice) {
     try {

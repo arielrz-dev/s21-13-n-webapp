@@ -29,14 +29,6 @@ public class CartServiceImpl implements CartService {
     return cartRepository.findById(cartId).orElseThrow(() -> new RuntimeException("Cart not found"));
   }
 
-//  @Override
-//  @Transactional
-//  public void updatePrice(Long cartId, BigDecimal newPrice) {
-//    Cart cart = cartRepository.findById(cartId).orElseThrow(() -> new RuntimeException("Cart not found"));
-//    cart.setTotalAmount(newPrice);
-//    cartRepository.save(cart);
-//  }
-
   @Override
   @Transactional
   public void updatePrice(Long cartId, BigDecimal newPrice) {
