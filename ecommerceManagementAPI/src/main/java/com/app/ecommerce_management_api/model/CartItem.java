@@ -26,7 +26,7 @@ public class CartItem {
     private Cart cart;
 
     @OneToOne
-    @JoinColumn(name = "id_product", nullable = false, unique = true)
+    @JoinColumn(name = "id_product", nullable = false)
     private Product product;
 
     @ManyToMany

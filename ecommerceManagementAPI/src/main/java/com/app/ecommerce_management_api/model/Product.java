@@ -21,11 +21,16 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(length = 100)
     private String name;
+    @Column(length = 50)
     private String type;
+    @Column(length = 50)
     private String brand;
+    @Column(length = 255)
     private String description;
     private BigDecimal price;
+    @Column(length = 255)
     private String imageUrl;
     private Instant createdAt;
 
