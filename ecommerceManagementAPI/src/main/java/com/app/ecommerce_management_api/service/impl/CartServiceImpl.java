@@ -4,6 +4,9 @@ import com.app.ecommerce_management_api.model.Cart;
 import com.app.ecommerce_management_api.repository.CartRepository;
 import com.app.ecommerce_management_api.service.CartService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -21,6 +24,14 @@ public class CartServiceImpl implements CartService {
 
   @Override
   public Cart findById(Long cartId) {
-    return cartRepository.getReferenceById(cartId);
+    return cartRepository.findById(cartId).orElseThrow(() -> new RuntimeException("Cart not found"));
+  }
+
+  @Override
+  @Transactional
+  public void updatePrice(Long cartId, BigDecimal newPrice) {
+    Cart cart = cartRepository.findById(cartId).orElseThrow(() -> new RuntimeException("Cart not found"));
+    cart.setTotalAmount(newPrice);
+    cartRepository.save(cart);
   }
 }

@@ -5,7 +5,6 @@ import com.app.ecommerce_management_api.model.User;
 import com.app.ecommerce_management_api.service.CartService;
 import com.app.ecommerce_management_api.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,15 +43,12 @@ public class CartController {
   @PutMapping("/updatePrice")
   public ResponseEntity<?> updatePrice(@RequestParam Long cartId, @RequestParam BigDecimal newPrice) throws Exception {
     try {
-      Cart cart = cartService.findById(cartId);
-      if (cart == null) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cart not found");
-      }
-      cart.setTotalAmount(newPrice);
-      cartService.save(cart);
-      return ResponseEntity.ok("Price updated successfully");
-    } catch (Exception e) {
-      throw new Exception("Error updating the price", e);
+      cartService.updatePrice(cartId,newPrice);
+      return ResponseEntity.ok("Cart ammount updated successfully");
+
+    }
+    catch (Exception e){
+      throw new Exception("Error al actualizar el precio",e);
     }
   }
 
