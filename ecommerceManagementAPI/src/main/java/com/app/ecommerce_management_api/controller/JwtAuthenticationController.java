@@ -43,8 +43,8 @@ public class JwtAuthenticationController {
   @PostMapping("/authenticate")
   @Operation(summary = "Authenticate user", description = "Authenticates a user and returns a JWT token and refresh token")
   public ResponseEntity<JwtResponse> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
-    authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
-    final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+    authenticate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
+    final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getEmail());
     final String token = jwtTokenUtil.generateToken(userDetails);
     final String refreshToken = jwtTokenUtil.generateRefreshToken(userDetails);
     return ResponseEntity.ok(new JwtResponse(token, refreshToken));
@@ -84,13 +84,13 @@ public class JwtAuthenticationController {
       return ResponseEntity.ok(userInfo);
   }
 
-  private void authenticate(String username, String password) throws Exception {
+  private void authenticate(String email, String password) throws Exception {
     try {
-      authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+      authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
     } catch (DisabledException e) {
       throw new Exception("USER_DISABLED", e);
     } catch (BadCredentialsException e) {
-      throw new Exception("INVALID_CREDENTIALS", e);
+      throw new BadCredentialsException("Usuario o contraseña ingresadas son inválidos.");
     }
   }
 }

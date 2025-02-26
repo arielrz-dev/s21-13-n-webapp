@@ -26,12 +26,9 @@ public class JwtUserDetailsService implements UserDetailsService {
   }
 
   @Override
-  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    User user = userRepository.findByUsername(username);
-    if (user == null) {
-      throw new UsernameNotFoundException("User not found with username: " + username);
-    }
-    return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+  public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    User user = userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
+    return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
             getAuthority(user));
   }
 
@@ -43,6 +40,7 @@ public class JwtUserDetailsService implements UserDetailsService {
     User newUser = new User();
     newUser.setUsername(user.getUsername());
     newUser.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+    newUser.setEmail(user.getEmail());
     newUser.setRole("ROLE_USER"); // Asignar rol por defecto
     try {
       return userRepository.save(newUser);
