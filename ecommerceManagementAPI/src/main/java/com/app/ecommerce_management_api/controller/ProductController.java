@@ -20,8 +20,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/v1/products")
 
@@ -42,7 +40,6 @@ public class ProductController {
     Product product = productService.getProductById(id);
     return ResponseEntity.ok(convert.convertToDto(product,ProductResponse.class));
   }
-
   @Operation(
           summary = "Get products",
           description = "Returns a list of products based on the provided filter criteria",
@@ -53,14 +50,7 @@ public class ProductController {
                   @ApiResponse(responseCode = "200", description = "List of products"),
                   @ApiResponse(responseCode = "400", description = "Bad request")
           })
-//  @GetMapping
-//  public ResponseEntity<List<ProductResponse>> getProducts(ProductFilter filter) {
-//    Specification spec = new ProductSpecification(filter);
-//    List<Product> products = productService.getProducts(spec);
-//    return ResponseEntity.ok(convert.convertToDtoList(products, ProductResponse.class));
-//  }
-
-  @GetMapping
+  @GetMapping("")
   public ResponseEntity<Page<ProductResponse>> getProducts(ProductFilter filter, Pageable pageable) {
     // Si el Pageable es nulo (cuando no se pasan los parámetros page y size), usamos un valor predeterminado
     if (pageable == null) {

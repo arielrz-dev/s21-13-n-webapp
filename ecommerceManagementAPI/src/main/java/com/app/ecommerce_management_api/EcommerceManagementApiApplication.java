@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Date;
+
 
 @SpringBootApplication
 public class EcommerceManagementApiApplication {
@@ -53,5 +55,7 @@ public class EcommerceManagementApiApplication {
   @PostConstruct
   public void logSwaggerUrl() {
     logger.info("Swagger UI available at: https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/swagger-ui/index.html");
+    logger.info("11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+
   }
 }
