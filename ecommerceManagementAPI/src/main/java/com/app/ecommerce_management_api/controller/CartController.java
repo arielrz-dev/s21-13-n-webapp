@@ -5,8 +5,10 @@ import com.app.ecommerce_management_api.model.User;
 import com.app.ecommerce_management_api.service.CartService;
 import com.app.ecommerce_management_api.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
 
@@ -40,15 +42,27 @@ public class CartController {
     }
   }
 
-  @PutMapping("/updatePrice")
-  public ResponseEntity<?> updatePrice(@RequestParam Long cartId, @RequestParam BigDecimal newPrice) throws Exception {
-    try {
-      cartService.updatePrice(cartId,newPrice);
-      return ResponseEntity.ok("Cart ammount updated successfully");
+//  @PutMapping("/updatePrice")
+//  public ResponseEntity<?> updatePrice(@RequestParam Long cartId, @RequestParam BigDecimal newPrice) throws Exception {
+//    try {
+//      cartService.updatePrice(cartId,newPrice);
+//      return ResponseEntity.ok("Cart ammount updated successfully");
+//
+//    }
+//    catch (Exception e){
+//      throw new Exception("Error al actualizar el precio",e);
+//    }
+//  }
 
-    }
-    catch (Exception e){
-      throw new Exception("Error al actualizar el precio",e);
+  @PutMapping("/updatePrice")
+  public ResponseEntity<?> updatePrice(@RequestParam Long cartId, @RequestParam BigDecimal newPrice) {
+    try {
+      cartService.updatePrice(cartId, newPrice);
+      return ResponseEntity.ok("Cart amount updated successfully");
+    } catch (ResponseStatusException e) {
+      return ResponseEntity.status(e.getStatusCode()).body(e.getReason());
+    } catch (Exception e) {
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al actualizar el precio");
     }
   }
 
