@@ -11,9 +11,11 @@ export default function AuthModal() {
 
   return (
     <div>
-      <label htmlFor="auth_modal" className="btn text-white bg-pink-600 hover:bg-pink-700 btn-xs mt-2.5 lg:mt-1.5 lg:btn-sm">
+      <label htmlFor="auth_modal" className="btn text-white bg-pink-600 hover:bg-pink-700 btn-xs mt-2.5 lg:mt-0 lg:btn-lg">
         <FaUserLarge /> <span className="hidden lg:block"> Iniciar sesión </span>
       </label>
+
+
 
       <input type="checkbox" id="auth_modal" className="modal-toggle" />
       <div className="modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
