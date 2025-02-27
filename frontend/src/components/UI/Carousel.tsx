@@ -7,12 +7,13 @@ import { Poppins } from "next/font/google";
 import ProductCard from "../../components/ProductCard";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600"] });
+const IMAGE_BASE_URL = "https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/images/";
 
 type Product = {
   id: number;
   name: string;
   price: number;
-  image: string;
+  imageUrl: string;
   description: string;
 };
 
@@ -88,7 +89,7 @@ export default function Carousel() {
             id={product.id}
             name={product.name}
             price={product.price}
-            image={product.image} ///imageUrl
+            image={`${IMAGE_BASE_URL}${product.imageUrl}`}
             description={product.description}
           />
         ))}

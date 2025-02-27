@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
+import Button from "@/components/UI/Button";
 
 export default function DividerCard() {
-    return (
-        <div className="flex w-full flex-col lg:flex-row">
-            <div className="card bg-base-300 rounded-box grid h-32 flex-grow place-items-center">content</div>
-            <div className="divider lg:divider-horizontal">OR</div>
-            <div className="card bg-base-300 rounded-box grid h-32 flex-grow place-items-center">content</div>
-        </div>
-    )
+  return (
+    <div className="flex flex-col justify-center mx-3 mb-10 rounded-xl">
+      <span className="text-black text-center font-bold lg:text-4xl pb-3">
+        Empieza tu pedido
+      </span>
+
+      <div className="flex w-full flex-col lg:flex-row items-center justify-center">
+        <Button className="lg:btn-lg lg:text-2xl">ENTREGA EN TIENDA</Button>
+        <div className="divider lg:divider-horizontal font-bold lg:text-2xl text-black">O</div>
+        <Button className="lg:btn-lg lg:text-2xl">ENTREGA A DOMICILIO</Button>
+      </div>
+    </div>
+  );
 }
