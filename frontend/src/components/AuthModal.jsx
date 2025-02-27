@@ -11,7 +11,7 @@ export default function AuthModal() {
 
   return (
     <div>
-      <label htmlFor="auth_modal" className="btn text-white bg-pink-600 hover:bg-pink-700 btn-xs mt-2.5 lg:mt-0 lg:btn-lg">
+      <label htmlFor="auth_modal" className="rounded-none btn text-white bg-pink-600 hover:bg-pink-700 btn-xs mt-2.5 lg:mt-0 lg:btn-lg">
         <FaUserLarge /> <span className="hidden lg:block"> Iniciar sesión </span>
       </label>
 

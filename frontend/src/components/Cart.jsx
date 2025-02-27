@@ -4,7 +4,7 @@ import { IoMdCart } from "react-icons/io";
 export default function Cart() {
     return (
         <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="mt-2 btn btn-ghost">
+            <div tabIndex={0} role="button" className="rounded-none hover:bg-pink-200 btn btn-ghost lg:btn-lg">
                 <div className="indicator flex flex-col items-center justify-center">
                     {/* <svg
                         xmlns="http://www.w3.org/2000/svg"
