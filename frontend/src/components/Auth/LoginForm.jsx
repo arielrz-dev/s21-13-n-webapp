@@ -52,7 +52,7 @@ export function LoginForm({ setCurrentForm }) {
 
   return (
     <div>
-      <h3 className="text-lg font-bold text-center">INICIAR SESIÓN</h3>
+      <h3 className="text-lg font-bold text-center text-pink-700 lg:text-3xl">INICIAR SESIÓN</h3>
       <form onSubmit={handleSubmit(onSubmit)} className="py-4">
         <Input
           id="username"

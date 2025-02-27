@@ -1,11 +1,12 @@
 import React from 'react';
+import { IoMdCart } from "react-icons/io";
 
 export default function Cart() {
     return (
         <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-                <div className="indicator">
-                    <svg
+            <div tabIndex={0} role="button" className="rounded-none hover:bg-pink-200 btn btn-ghost lg:btn-lg">
+                <div className="indicator flex flex-col items-center justify-center">
+                    {/* <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
                         fill="none"
@@ -16,11 +17,16 @@ export default function Cart() {
                             strokeLinejoin="round"
                             strokeWidth="2"
                             d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                    <span className="badge badge-sm indicator-item bg-pink-400 bg-opacity-80">8</span>
-                    
+                    </svg> */}
+        
+                        <IoMdCart size={30} className='text-black' />
+                        <span className="text-[9px] text-black font-bold">CARRITO</span>
+
+                    <span className="badge badge-xs text-[8px] border-0 text-white indicator-item top-[6px] left-[16px] bg-pink-700 bg-opacity-80">8</span>
+
                 </div>
-                {/* <span className="text-[9px]">CARRITO</span> */}
+                
+
             </div>
             <div
                 tabIndex={0}

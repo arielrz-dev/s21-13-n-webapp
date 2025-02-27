@@ -70,7 +70,7 @@ export default function Carousel() {
 
   return (
     <div className={`${poppins.className} relative w-full flex justify-center items-center`}>
-      <div className="absolute bg-black bg-opacity-50 min-h-10 w-full rounded-3xl text-center"></div>
+      {/* <div className="absolute bg-black bg-opacity-50 min-h-10 w-full rounded-3xl text-center"></div> */}
       
       {/* Botón Izquierdo */}
       <button

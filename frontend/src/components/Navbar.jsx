@@ -45,21 +45,25 @@ export default function Navbar() {
 
 
     const menuItems = [
-        { label: 'Item 1', href: '/item1' },
-        { 
-            label: 'Menu', 
-            href: '/menu', 
-            submenu: [
-                { label: 'Helados', href: '/parent/submenu2' },
-                { label: 'Postres', href: '/parent/submenu2' },
-                { label: 'Tortas', href: '/parent/submenu2' },
-            ],
-        },
-        { label: 'Arma tu helado', href: '/item3' },
+        { label: 'ORDENA ONLINE', href: '/' },
+        { label: 'MENÚ', href: '/' },
+        { label: 'PROMOS', href: '/' },
+        { label: 'UBICACIÓN', href: '/' },
+        { label: 'UBICA TU ORDEN', href: '/' },
+        // { 
+        //     label: 'Menu', 
+        //     href: '/menu', 
+        //     submenu: [
+        //         { label: 'Helados', href: '/parent/submenu2' },
+        //         { label: 'Postres', href: '/parent/submenu2' },
+        //         { label: 'Tortas', href: '/parent/submenu2' },
+        //     ],
+        // },
+        // { label: 'Arma tu helado', href: '/item3' },
     ];
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 shadow-md p-0 m-0">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -79,12 +83,12 @@ export default function Navbar() {
                     <DropdownMenu items={menuItems} />
                 </div>
                 <Link href="/" className={`${adlamDisplay.className} mx-5 text-2xl lg:text-4xl`}>
-                <span className="text-black">Fres</span>
-                <span className="text-pink-600">ko</span>
+                <span className="text-black">FRES</span>
+                <span className="text-pink-600">KO</span>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 z-[50]">
+                <ul className="menu menu-horizontal px-1 z-[50] text-black font-bold">
                     {menuItems.map((item, index) => (
                         <li key={index}>
                             {item.submenu ? (

@@ -44,7 +44,7 @@ export function RegisterForm({ setCurrentForm }) {
 
   return (
     <div>
-      <h3 className="text-lg font-bold text-center">CREAR CUENTA</h3>
+      <h3 className="text-lg font-bold text-center text-pink-700 lg:text-3xl">CREAR CUENTA</h3>
       <form onSubmit={handleSubmit(onSubmit)} className="py-4">
         <Input
           id="username"
@@ -67,7 +67,7 @@ export function RegisterForm({ setCurrentForm }) {
             message: "Correo electrónico no válido",
           }}
           errorMessage={errors.email && errors.email.message}
-          placeholder="tucorreo@email.com"
+          placeholder="correo@dominio.com"
         />
         <Input
           id="password"
@@ -80,7 +80,7 @@ export function RegisterForm({ setCurrentForm }) {
           placeholder="•••••••"
         />
         <button type="submit" className="btn w-full bg-pink-600 text-white hover:bg-pink-700">
-          REGISTRARSE
+          REGISTRAME
         </button>
       </form>
 

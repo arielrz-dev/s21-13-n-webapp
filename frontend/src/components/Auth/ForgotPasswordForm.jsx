@@ -41,11 +41,12 @@ export function ForgotPasswordForm({ setCurrentForm }) {
 
   return (
     <div>
-      <h3 className="text-lg font-bold text-center">RECUPERAR CONTRASEÑA</h3>
+      <h3 className="text-lg font-bold text-center text-pink-700 lg:text-2xl">RECUPERAR CONTRASEÑA</h3>
+
       <form onSubmit={handleSubmit(onSubmit)} className="py-4">
         <Input
           id="email"
-          label="Correo electrónico"
+          label="Ingresa tu correo electrónico"
           type="email"
           register={register}
           required="El correo es obligatorio"
@@ -54,7 +55,7 @@ export function ForgotPasswordForm({ setCurrentForm }) {
             message: "Correo electrónico no válido",
           }}
           errorMessage={errors.email && errors.email.message}
-          placeholder="tucorreo@email.com"
+          placeholder="correo@dominio.com"
         />
         <button
           type="submit"
