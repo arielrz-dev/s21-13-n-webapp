@@ -41,9 +41,11 @@ export function ForgotPasswordForm({ setCurrentForm }) {
 
   return (
     <div>
-      <h3 className="text-lg font-bold text-center text-pink-700 lg:text-2xl">RECUPERAR CONTRASEÑA</h3>
+      <h3 className="text-lg font-bold text-center text-pink-700 lg:text-2xl">¿Olvidaste tu Contraseña?</h3>
+      
+      <p className="my-2 text-black">No te preocupes, te ayudamos a recuperarla</p>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="py-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="pb-4 pt-2">
         <Input
           id="email"
           label="Ingresa tu correo electrónico"
@@ -66,7 +68,7 @@ export function ForgotPasswordForm({ setCurrentForm }) {
         </button>
       </form>
 
-      <div className="text-center mt-2">
+      <div className="text-center justify-around flex items-center">
         <span className="text-black text-sm">¿Ya recordaste tu contraseña? </span>
         <button
           onClick={() => setCurrentForm("login")}

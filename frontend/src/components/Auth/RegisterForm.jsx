@@ -31,7 +31,7 @@ export function RegisterForm({ setCurrentForm }) {
       if (response.ok) {
         const result = await response.json();
         console.log("Registro exitoso:", result);
-       
+
         // Luego podemos redirigir al usuario a la página de inicio de sesión
 
       } else {
@@ -84,7 +84,7 @@ export function RegisterForm({ setCurrentForm }) {
         </button>
       </form>
 
-      <div className="text-center mt-2">
+      <div className="text-center justify-around flex items-center">
         <span className="text-black text-sm">¿Ya tienes una cuenta? </span>
         <button onClick={() => setCurrentForm("login")} className="font-semibold text-black hover:text-pink-700 underline">
           Iniciar sesión
