@@ -7,12 +7,13 @@ import { Poppins } from "next/font/google";
 import ProductCard from "../../components/ProductCard";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600"] });
+const IMAGE_BASE_URL = "https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/images/";
 
 type Product = {
   id: number;
   name: string;
   price: number;
-  image: string;
+  imageUrl: string;
   description: string;
 };
 
@@ -45,10 +46,11 @@ export default function Carousel() {
   );
 
   useEffect(() => {
-    fetch("/api/products") // Reemplaza con tu API real
+    //https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/products
+    fetch("https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/v1/products") // Reemplaza con tu API real
       .then((res) => res.json())
       .then((data) => {
-        setProducts(data);
+        setProducts(data.content);
         if (instanceRef.current) {
           setIsSliderReady(true); // Marcar como listo una vez que los productos se han cargado
         }
@@ -87,7 +89,7 @@ export default function Carousel() {
             id={product.id}
             name={product.name}
             price={product.price}
-            image={product.image}
+            image={`${IMAGE_BASE_URL}${product.imageUrl}`}
             description={product.description}
           />
         ))}
