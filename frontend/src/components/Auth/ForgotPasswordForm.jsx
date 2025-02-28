@@ -64,7 +64,7 @@ export function ForgotPasswordForm({ setCurrentForm }) {
           className="btn w-full bg-pink-600 text-white hover:bg-pink-700"
           disabled={isSubmitting}
         >
-          {isSubmitting ? "Enviando..." : "Enviar correo"}
+          {isSubmitting ? "Enviando enlace de recuperación..." : "Enviar enlace de recuperación"}
         </button>
       </form>
 
