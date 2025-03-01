@@ -64,12 +64,12 @@ FRESKO es una aplicación web de e-commerce diseñada para la Heladería **Fresk
 ![Trello](https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white)  
 ![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)
 
-**Enlaces de Acceso al MVP:**
+### **Enlaces de Acceso al MVP:**
 
 [![FIGMA](https://img.shields.io/badge/figma-9C55F7?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/design/MqCs0Jc9ryOe1KTtI7AnIR/E-commerce-de-Helader%C3%ADa?node-id=0-1&t=Ou1CPCHWtmK3y9q1-1)
 [![Sitio web](https://img.shields.io/website?url=https%3A%2F%2Ffipe.cl&style=for-the-badge)](https://heladeria-deploy.vercel.app/)
 
-**Reunión del equipo**
+### **Reunión del equipo**
 
 <div align="center">
 <img src="https://github.com/No-Country-simulation/s21-13-n-webapp/blob/main/img/reunion.jpg" alt="Captura" />
@@ -80,7 +80,7 @@ FRESKO es una aplicación web de e-commerce diseñada para la Heladería **Fresk
 <table align="center">
   
   <tr>
-    <td align="center">Hernán Casasola<img src="https://github.com/No-Country-simulation/s21-13-n-webapp/blob/main/img/ar.png" width="16" /></td>
+    <td align="center">Hernán Casasola <img src="https://github.com/No-Country-simulation/s21-13-n-webapp/blob/main/img/ar.png" width="16" /></td>
     <td align="center">Luis Quispe <img src="https://github.com/No-Country-simulation/s21-13-n-webapp/blob/main/img/pe.png" width="16" /></td>
     <td align="center">Carlos Franco <img src="https://github.com/No-Country-simulation/s21-13-n-webapp/blob/main/img/ve.png" width="16" /></td>
     <td align="center">Claudia Ramos <img src="https://github.com/No-Country-simulation/s21-13-n-webapp/blob/main/img/ar.png" width="16" /></td>
@@ -93,16 +93,16 @@ FRESKO es una aplicación web de e-commerce diseñada para la Heladería **Fresk
   </tr>
   <tr>
     <td align="center"><a href="https://www.linkedin.com/in/hernan-casasola/">
-    	<img src="https://img.shields.io/badge/%E2%9C%A8-LinkedIn%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="LinkedIn" />
+    	<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
     </a></td>
     <td align="center"><a href="https://www.linkedin.com/in/luis-angel-quispe/">
-    	<img src="https://img.shields.io/badge/%E2%9C%A8-LinkedIn%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="LinkedIn" />
+    	<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
     </a></td>
     <td align="center"><a href="">
-    	<img src="https://img.shields.io/badge/%E2%9C%A8-LinkedIn%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="LinkedIn" />
+    	<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
     </a></td>
     <td align="center"><a href="https://www.linkedin.com/in/claudialisramos/">
-    	<img src="https://img.shields.io/badge/%E2%9C%A8-LinkedIn%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="LinkedIn" />
+    	<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
     </a></td>
   </tr>
 
@@ -121,7 +121,7 @@ FRESKO es una aplicación web de e-commerce diseñada para la Heladería **Fresk
   </tr>
   <tr>
     <td align="center"><a href="https://www.linkedin.com/in/ariel-rz/">
-    	<img src="https://img.shields.io/badge/%E2%9C%A8-LinkedIn%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="LinkedIn" />
+    	<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
     </a></td>
     <td align="center"><a href="https://www.linkedin.com/in/alejandro-reyes-software-qa-engineer/">
     	<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
