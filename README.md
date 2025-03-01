@@ -110,9 +110,9 @@ FRESKO es una aplicación web de e-commerce diseñada para la Heladería **Fresk
 
 <table align="center">
   <tr>
-    <td align="center">Armando Ruiz <img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/ar.png" width="16" /></td>
-    <td align="center">Alejandro Reyes <img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/mex.png" width="16" /></td>
-    <td align="center">Mónica Godino <img src="https://github.com/No-Country-simulation/c23-68-webapp/blob/main/img/ar.png" width="16" /></td>
+    <td align="center">Armando Ruiz <img src="https://github.com/No-Country-simulation/s21-13-n-webapp/blob/main/img/ar.png" width="16" /></td>
+    <td align="center">Alejandro Reyes <img src="https://github.com/No-Country-simulation/s21-13-n-webapp/blob/main/img/mex.png" width="16" /></td>
+    <td align="center">Mónica Godino <img src="https://github.com/No-Country-simulation/s21-13-n-webapp/blob/main/img/ar.png" width="16" /></td>
   </tr>
   <tr>
     <td align="center">Dev Backend</td>
