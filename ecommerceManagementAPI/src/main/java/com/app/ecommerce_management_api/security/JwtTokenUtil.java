@@ -65,7 +65,7 @@ public class JwtTokenUtil implements Serializable {
     claims.put("roles", List.copyOf(userDetails.getAuthorities().stream()
             .map(GrantedAuthority::getAuthority)
             .toList()));
-    String token= doGenerateToken(claims, userDetails.getEmail(),JWT_TOKEN_VALIDITY);
+    String token= doGenerateToken(claims, userDetails.getUsername(),JWT_TOKEN_VALIDITY);
     logTokenExpiration(token);
     return token;
   }

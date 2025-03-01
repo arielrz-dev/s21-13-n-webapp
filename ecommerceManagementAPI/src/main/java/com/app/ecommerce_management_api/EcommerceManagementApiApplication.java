@@ -52,6 +52,6 @@ public class EcommerceManagementApiApplication {
 
   @PostConstruct
   public void logSwaggerUrl() {
-    logger.info("Swagger UI available at: http://localhost:8080/swagger-ui/index.html");
+    logger.info("Swagger UI available at: https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/swagger-ui/index.html");
   }
 }
