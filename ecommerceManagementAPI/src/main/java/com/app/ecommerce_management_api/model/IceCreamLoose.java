@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
-
+//comment
 @Entity
 @Table(name = "stock_flavor")
 @Getter

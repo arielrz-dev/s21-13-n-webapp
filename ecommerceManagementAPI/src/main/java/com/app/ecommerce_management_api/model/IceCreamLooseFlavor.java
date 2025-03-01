@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
-
+//comment
 @Entity
 public class IceCreamLooseFlavor {
 

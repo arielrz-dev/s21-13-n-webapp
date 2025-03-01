@@ -8,7 +8,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.List;
-
+//comment
 @Entity
 @Table(name = "order_item")
 @Getter

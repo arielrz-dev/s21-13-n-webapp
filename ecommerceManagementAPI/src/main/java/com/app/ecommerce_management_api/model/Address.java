@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+//comment
 @Entity
 @Table(name = "address")
 @Getter
