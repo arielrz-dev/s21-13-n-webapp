@@ -1,6 +1,6 @@
 # FRESKO 🍦
 
-![FRESKO Banner](ruta-a-tu-banner.png)
+![FRESKO Banner](frontend/public/Portada-Fresko.png)
 
 > **"Dulzura en Cada Bocado, Frescura en Cada Instante."**
 
