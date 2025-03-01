@@ -1,29 +1,28 @@
 package com.app.ecommerce_management_api.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 //comment
 @Entity
-@Table(name = "stock_product")
+@Table(name = "address")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StockProduct {
+public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long stock;
+    @ManyToOne
+    @JoinColumn(name = "id_user", nullable = false)
+    private User user;
 
-    @OneToOne
-    @JoinColumn(name = "id_product", nullable = false, unique = true)
-    @JsonBackReference
-    private Product product;
+    //falta info
 
 }

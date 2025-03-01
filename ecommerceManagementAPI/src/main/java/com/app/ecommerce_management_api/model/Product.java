@@ -9,7 +9,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-
+//comment
 @Entity
 @Table(name = "product")
 @Getter

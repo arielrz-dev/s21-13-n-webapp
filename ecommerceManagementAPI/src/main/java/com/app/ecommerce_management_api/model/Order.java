@@ -1,5 +1,6 @@
 package com.app.ecommerce_management_api.model;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,33 +11,33 @@ import java.math.BigDecimal;
 import java.util.List;
 //comment
 @Entity
-@Table(name = "cart_item")
+@Table(name = "orders")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CartItem {
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "cart_id", nullable = false)
-    private Cart cart;
-
     @OneToOne
-    @JoinColumn(name = "id_product", nullable = false)
-    private Product product;
+    @JoinColumn(name = "id_user", nullable = false, unique = true)
+    private User user;
+
+    private BigDecimal totalAmount;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderItem> orderItems;
 
     @ManyToMany
     @JoinTable(
-            name = "cart_items_discounts",
-            joinColumns = @JoinColumn(name = "id_cart_item"),
-            inverseJoinColumns = @JoinColumn(name = "id_discount")
+            name = "orders_discounts",
+            joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "discount_id")
     )
     private List<Discount> discounts;
-    private Integer amount;
-    private BigDecimal price;
 
+    //falta medio de  pago
 }

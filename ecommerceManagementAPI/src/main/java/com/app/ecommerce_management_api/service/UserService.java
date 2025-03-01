@@ -2,7 +2,7 @@ package com.app.ecommerce_management_api.service;
 
 import com.app.ecommerce_management_api.model.User;
 import jakarta.servlet.http.HttpServletRequest;
-
+//comment
 public interface UserService {
   User getUserInfoByUsername(String username);
 
