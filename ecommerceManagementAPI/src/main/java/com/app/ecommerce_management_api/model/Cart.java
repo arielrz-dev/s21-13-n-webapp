@@ -21,13 +21,13 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_user", nullable = false, unique = true)
     private User user;
 
     private BigDecimal totalAmount;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "carts_discounts",
             joinColumns = @JoinColumn(name = "cart_id"),
