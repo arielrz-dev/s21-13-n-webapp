@@ -82,7 +82,7 @@ FRESKO es una aplicación web de e-commerce diseñada para la Heladería **Fresk
   <tr>
     <td align="center">Hernán Casasola <img src="https://github.com/No-Country-simulation/s21-13-n-webapp/blob/main/img/ar.png" width="16" /></td>
     <td align="center">Luis Quispe <img src="https://github.com/No-Country-simulation/s21-13-n-webapp/blob/main/img/pe.png" width="16" /></td>
-    <td align="center">Carlos Franco <img src="https://github.com/No-Country-simulation/s21-13-n-webapp/blob/main/img/ve.png" width="16" /></td>
+    <td align="center">Carlos Franco <img src="https://github.com/No-Country-simulation/s21-13-n-webapp/blob/main/img/col.png" width="16" /></td>
     <td align="center">Claudia Ramos <img src="https://github.com/No-Country-simulation/s21-13-n-webapp/blob/main/img/ar.png" width="16" /></td>
   </tr>
   <tr>
@@ -98,7 +98,7 @@ FRESKO es una aplicación web de e-commerce diseñada para la Heladería **Fresk
     <td align="center"><a href="https://www.linkedin.com/in/luis-angel-quispe/">
     	<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
     </a></td>
-    <td align="center"><a href="">
+    <td align="center"><a href="https://www.linkedin.com/in/dev-carlos-franco/">
     	<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
     </a></td>
     <td align="center"><a href="https://www.linkedin.com/in/claudialisramos/">
