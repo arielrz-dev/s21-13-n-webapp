@@ -29,6 +29,24 @@ springdoc:
     enabled: true
     path: /index.html
   packages-to-scan: com.app.ecommerce_management_api
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "ecommerce-management-API"
+    version: "1.0.0"
+    author: "S21"
 ---
 #spring:
 #  config:

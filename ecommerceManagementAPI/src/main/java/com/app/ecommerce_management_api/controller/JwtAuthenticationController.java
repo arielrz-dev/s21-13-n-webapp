@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/api/v1")
 @RestController
-@Tag(name = "JWT Authentication Controller", description = "Endpoints for JWT authentication and user management")
+@Tag(name = "JWT Authentication", description = "Endpoints for JWT authentication and user management")
 public class JwtAuthenticationController {
 
   private final AuthenticationManager authenticationManager;
