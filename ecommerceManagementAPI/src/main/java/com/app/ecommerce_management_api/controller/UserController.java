@@ -71,7 +71,6 @@ public class UserController {
                           mediaType = "application/json",
                           schema = @Schema(implementation = Map.class)
                   )),
-                  @ApiResponse(responseCode = "409", description = "Imagen duplicada detectada"),
                   @ApiResponse(responseCode = "404", description = "Usuario no encontrado")
           }
   )
