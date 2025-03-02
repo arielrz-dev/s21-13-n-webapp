@@ -40,16 +40,22 @@ public class ProductController {
     Product product = productService.getProductById(id);
     return ResponseEntity.ok(convert.convertToDto(product,ProductResponse.class));
   }
+
+
   @Operation(
           summary = "Get products",
-          description = "Returns a list of products based on the provided filter criteria",
+          description = "Devuelve una lista de productos basada en los criterios de filtro proporcionados",
           parameters = {
-                  @Parameter(name = "filter", description = "Product filter criteria")
+                  @Parameter(name = "filter", description = "Criterios de filtro para los productos")
           },
           responses = {
-                  @ApiResponse(responseCode = "200", description = "List of products"),
-                  @ApiResponse(responseCode = "400", description = "Bad request")
-          })
+                  @ApiResponse(responseCode = "200", description = "Lista de productos", content = @io.swagger.v3.oas.annotations.media.Content(
+                          mediaType = "application/json",
+                          schema = @io.swagger.v3.oas.annotations.media.Schema(implementation = ProductResponse.class)
+                  )),
+                  @ApiResponse(responseCode = "400", description = "Solicitud incorrecta")
+          }
+  )
   @GetMapping("")
   public ResponseEntity<Page<ProductResponse>> getProducts(ProductFilter filter, Pageable pageable) {
     // Si el Pageable es nulo (cuando no se pasan los parámetros page y size), usamos un valor predeterminado

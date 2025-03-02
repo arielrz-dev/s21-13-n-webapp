@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/api/v1/cart")
-@Tag(name = "JWT Authentication", description = "Endpoints for JWT authentication and user management")
+@Tag(name = "Cart", description = "Endpoints for cart user management")
 public class CartController {
 
   private final UserService userService;
