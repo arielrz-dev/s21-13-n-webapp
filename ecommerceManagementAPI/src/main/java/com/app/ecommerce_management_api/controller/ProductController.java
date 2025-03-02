@@ -9,6 +9,7 @@ import com.app.ecommerce_management_api.util.ConversionUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -22,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/products")
-
+@Tag(name = "Productos", description = "Operaciones relacionadas con productos")
 public class ProductController {
 
   private final ProductService productService;
@@ -34,7 +35,40 @@ public class ProductController {
     this.convert = convert;
   }
 
-  @Operation(summary = "Get product by ID", description = "Returns a product by its ID")
+  @Operation(
+          summary = "Get product by ID",
+          description = "Devuelve un producto por su ID",
+          parameters = {
+                  @Parameter(
+                          name = "id",
+                          description = "ID del producto a obtener",
+                          required = true,
+                          example = "1"
+                  )
+          },
+          responses = {
+                  @ApiResponse(
+                          responseCode = "200",
+                          description = "Detalles del producto",
+                          content = @io.swagger.v3.oas.annotations.media.Content(
+                                  mediaType = "application/json",
+                                  schema = @io.swagger.v3.oas.annotations.media.Schema(
+                                          implementation = ProductResponse.class
+                                  )
+                          )
+                  ),
+                  @ApiResponse(
+                          responseCode = "404",
+                          description = "Producto no encontrado",
+                          content = @io.swagger.v3.oas.annotations.media.Content(
+                                  mediaType = "application/json",
+                                  schema = @io.swagger.v3.oas.annotations.media.Schema(
+                                          implementation = String.class
+                                  )
+                          )
+                  )
+          }
+  )
   @GetMapping("/{id}")
   public ResponseEntity<ProductResponse> getProductById(@PathVariable Long id) {
     Product product = productService.getProductById(id);
@@ -46,7 +80,14 @@ public class ProductController {
           summary = "Get products",
           description = "Devuelve una lista de productos basada en los criterios de filtro proporcionados",
           parameters = {
-                  @Parameter(name = "filter", description = "Criterios de filtro para los productos")
+                  @Parameter(name = "name", description = "Filtrar por nombre del producto", example = "Laptop"),
+                  @Parameter(name = "category", description = "Filtrar por categoría", example = "Electronics"),
+                  @Parameter(name = "minPrice", description = "Precio mínimo", example = "100"),
+                  @Parameter(name = "maxPrice", description = "Precio máximo", example = "2000"),
+                  // Parámetros de paginación
+                  @Parameter(name = "page", description = "Número de página (empieza en 0)", example = "0"),
+                  @Parameter(name = "size", description = "Cantidad de elementos por página", example = "20"),
+                  @Parameter(name = "sort", description = "Criterio de ordenamiento. Ejemplo: name,asc", example = "name,asc")
           },
           responses = {
                   @ApiResponse(responseCode = "200", description = "Lista de productos", content = @io.swagger.v3.oas.annotations.media.Content(
