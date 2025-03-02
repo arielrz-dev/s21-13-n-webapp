@@ -7,7 +7,7 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600"] });
 
 export default function IceCreamCard() {
     return (
-        <div className={`${poppins.className} flex justify-center mt-10 px-4`}>
+        <div className={`${poppins.className} flex justify-center mt-10 px-4 max-w-full`}>
             <div className="relative md:w-[80%] w-full max-w-[1055px] bg-white shadow-2xl rounded-xl py-6 px-6 overflow-visible">
                 {/* Imagen sobresaliendo */}
                 <div className="absolute top-[-18px] right-[-50px] md:top-[-30px] md:right-[-80px] xl:top-[-45px] xl:right-[-115px] 2xl:top-[-45px] 2xl:right-[-115px] z-10">

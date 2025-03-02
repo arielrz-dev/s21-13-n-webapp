@@ -37,7 +37,7 @@ export default function Subscribe() {
   };
 
   return (
-    <div className={`${poppins.className} flex flex-row bg-pink-700 text-base-content p-10 justify-center items-center gap-5`}>
+    <div className={`${poppins.className} flex flex-row bg-pink-700 text-base-content p-10 justify-center items-center gap-5 max-w-full`}>
 
 
 

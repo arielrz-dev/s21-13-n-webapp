@@ -1,3 +1,4 @@
+"use client";
 import { IoMdCart } from "react-icons/io";
 import { useState } from "react";
 
@@ -36,7 +37,7 @@ const ProductCard = ({ id, name, price, image, description }: ProductCardProps) 
           </h2>
         </figure>
         <div className="card-body p-3 sm:p-4 pt-[2px]">
-          <p className="text-[8px] sm:text-[10px] text-center truncate">{description}</p>
+          <p className="text-[8px] sm:text-[10px] text-center">{description}</p>
           <div className="flex-row flex justify-between items-center">
             <p className="text-xs sm:text-sm font-semibold text-pink-600 p-1 sm:p-2">${price.toFixed(2)}</p>
             <button onClick={addToCart} className="text-pink-600 p-1 sm:p-2 rounded-full hover:bg-pink-100">

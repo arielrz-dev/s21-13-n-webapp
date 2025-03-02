@@ -8,6 +8,7 @@ import UserAvatar from './UserAvatar';
 import { ADLaM_Display } from "next/font/google";
 import AuthModal from './AuthModal';
 import Cookies from 'js-cookie';
+import Logo from './UI/Logo';
 
 const adlamDisplay = ADLaM_Display({
     weight: "400",
@@ -82,10 +83,11 @@ export default function Navbar() {
                     </div>
                     <DropdownMenu items={menuItems} />
                 </div>
-                <Link href="/" className={`${adlamDisplay.className} mx-5 text-2xl lg:text-4xl`}>
+                {/* <Link href="/" className={`${adlamDisplay.className} mx-5 text-2xl lg:text-4xl`}>
                 <span className="text-black">FRES</span>
                 <span className="text-pink-600">KO</span>
-                </Link>
+                </Link> */}
+                <Logo className="mx-5 text-xl lg:text-3xl" />
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 z-[50] text-black font-bold">
