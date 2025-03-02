@@ -104,6 +104,7 @@ public class ProductController {
           @Parameter(description = "Filter criteria for products") ProductFilter filter,
           @Parameter(hidden = true) @PageableDefault(size = 20, sort = "name", direction = Sort.Direction.ASC) Pageable pageable) {
 
+
     Specification<Product> spec = new ProductSpecification(filter);
     Page<Product> productsPage = productService.getProducts(spec, pageable);  // Especificamos que es una página de Product
     Page<ProductResponse> productResponsesPage = productsPage.map(product -> convert.convertToDto(product, ProductResponse.class));
