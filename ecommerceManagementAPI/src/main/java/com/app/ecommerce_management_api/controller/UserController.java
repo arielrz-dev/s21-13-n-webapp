@@ -1,5 +1,6 @@
 package com.app.ecommerce_management_api.controller;
 
+import com.app.ecommerce_management_api.dto.FileUploadRequest;
 import com.app.ecommerce_management_api.model.User;
 import com.app.ecommerce_management_api.service.CloudinaryService;
 import com.app.ecommerce_management_api.service.UserService;
@@ -8,6 +9,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -49,15 +51,23 @@ public class UserController {
   }
 
 
+  @PostMapping("/{userId}/profile-image")
   @Operation(
           summary = "Upload a profile image for a user",
           description = "Sube una imagen de perfil para un usuario y actualiza la URL de la imagen de perfil en la base de datos.",
           parameters = {
-                  @Parameter(name = "userId", description = "ID del usuario para subir la imagen de perfil", required = true, example = "1"),
-                  @Parameter(name = "file", description = "Archivo de imagen de perfil para subir", required = true, schema = @Schema(type = "string", format = "binary"))
+                  @Parameter(name = "userId", description = "ID del usuario para subir la imagen de perfil", required = true, example = "1")
           },
+          requestBody = @RequestBody(
+                  description = "Archivo de imagen de perfil para subir",
+                  required = true,
+                  content = @Content(
+                          mediaType = "multipart/form-data",
+                          schema = @Schema(implementation = FileUploadRequest.class)
+                  )
+          ),
           responses = {
-                  @ApiResponse(responseCode = "200", description = "Imagen de perfil subida exitosamente", content = @Content(
+                  @ApiResponse(responseCode = "200", description = "Operación exitosa", content = @Content(
                           mediaType = "application/json",
                           schema = @Schema(implementation = Map.class)
                   )),
@@ -65,7 +75,6 @@ public class UserController {
                   @ApiResponse(responseCode = "404", description = "Usuario no encontrado")
           }
   )
-  @PostMapping("/{userId}/profile-image")
   public CompletableFuture<ResponseEntity<Map>> uploadProfileImage(
           @PathVariable Long userId,
           @RequestParam("file") MultipartFile file) throws IOException {
