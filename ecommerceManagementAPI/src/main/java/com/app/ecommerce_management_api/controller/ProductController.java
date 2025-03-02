@@ -8,13 +8,15 @@ import com.app.ecommerce_management_api.specification.ProductSpecification;
 import com.app.ecommerce_management_api.util.ConversionUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +33,7 @@ public class ProductController {
   private final ConversionUtil convert;
 
   public ProductController(ProductService productService, ConversionUtil convert) {
-    this.productService= productService;
+    this.productService = productService;
     this.convert = convert;
   }
 
@@ -72,7 +74,7 @@ public class ProductController {
   @GetMapping("/{id}")
   public ResponseEntity<ProductResponse> getProductById(@PathVariable Long id) {
     Product product = productService.getProductById(id);
-    return ResponseEntity.ok(convert.convertToDto(product,ProductResponse.class));
+    return ResponseEntity.ok(convert.convertToDto(product, ProductResponse.class));
   }
 
 
@@ -80,29 +82,27 @@ public class ProductController {
           summary = "Get products",
           description = "Devuelve una lista de productos basada en los criterios de filtro proporcionados",
           parameters = {
-                  @Parameter(name = "name", description = "Filtrar por nombre del producto", example = "Laptop"),
-                  @Parameter(name = "category", description = "Filtrar por categoría", example = "Electronics"),
-                  @Parameter(name = "minPrice", description = "Precio mínimo", example = "100"),
-                  @Parameter(name = "maxPrice", description = "Precio máximo", example = "2000"),
-                  // Parámetros de paginación
+                  @Parameter(name = "name", description = "Filtrar por nombre del producto", example = "Helado de Vainilla"),
+                  @Parameter(name = "type", description = "Filtrar por tipo", example = "snack"),
+                  @Parameter(name = "brand", description = "Filtrar por marca", example = "Freddo"),
+                  @Parameter(name = "priceMin", description = "Precio mínimo (ignorado si es 0 o vacío)", example = "3.29"),
+                  @Parameter(name = "priceMax", description = "Precio máximo (ignorado si es 0 o vacío)", example = "3.49"),
                   @Parameter(name = "page", description = "Número de página (empieza en 0)", example = "0"),
                   @Parameter(name = "size", description = "Cantidad de elementos por página", example = "20"),
-                  @Parameter(name = "sort", description = "Criterio de ordenamiento. Ejemplo: name,asc", example = "name,asc")
+                  @Parameter(name = "sort", description = "Criterio de ordenamiento. Ejemplo: id", example = "id")
           },
           responses = {
-                  @ApiResponse(responseCode = "200", description = "Lista de productos", content = @io.swagger.v3.oas.annotations.media.Content(
+                  @ApiResponse(responseCode = "200", description = "Lista de productos", content = @Content(
                           mediaType = "application/json",
-                          schema = @io.swagger.v3.oas.annotations.media.Schema(implementation = ProductResponse.class)
+                          schema = @Schema(implementation = ProductResponse.class)
                   )),
                   @ApiResponse(responseCode = "400", description = "Solicitud incorrecta")
           }
   )
   @GetMapping("")
-  public ResponseEntity<Page<ProductResponse>> getProducts(ProductFilter filter, Pageable pageable) {
-    // Si el Pageable es nulo (cuando no se pasan los parámetros page y size), usamos un valor predeterminado
-    if (pageable == null) {
-      pageable = PageRequest.of(0, 20, Sort.by(Sort.Order.asc("name")));  // Página 0, tamaño 20 productos por página
-    }
+  public ResponseEntity<Page<ProductResponse>> getProducts(
+          @Parameter(description = "Filter criteria for products") ProductFilter filter,
+          @Parameter(hidden = true) @PageableDefault(size = 20, sort = "name", direction = Sort.Direction.ASC) Pageable pageable) {
 
     Specification<Product> spec = new ProductSpecification(filter);
     Page<Product> productsPage = productService.getProducts(spec, pageable);  // Especificamos que es una página de Product
