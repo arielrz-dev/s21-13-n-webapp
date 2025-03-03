@@ -27,7 +27,7 @@ public class AppConfig {
         when(notNull).map(source.getProduct().getName(), destination.getProductName());
         when(notNull).map(source.getProduct().getDescription(), destination.getProductDescription());
         when(notNull).map(source.getProduct().getPrice(), destination.getProductPrice());
-//        when(notNull).map(source.getPrice().multiply(BigDecimal.valueOf(source.getAmount())), destination.getTotalPrice());
+//      when(notNull).map(source.getPrice().multiply(BigDecimal.valueOf(source.getAmount())), destination.getTotalPrice());
         // Mapear otros campos necesarios
       }
     });
