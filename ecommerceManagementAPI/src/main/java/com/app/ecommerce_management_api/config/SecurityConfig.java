@@ -18,7 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
+//comment
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -47,6 +47,7 @@ public class SecurityConfig {
     http.csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(authz -> authz
                     .requestMatchers("/api/v1/authenticate", "/api/v1/register").permitAll()
+                    .requestMatchers("/actuator/**").permitAll()
                     .requestMatchers("/api/v1/**").permitAll()
                     .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
                     .requestMatchers("/api/v1/user/**").hasRole("USER")

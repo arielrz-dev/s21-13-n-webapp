@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-
+//comment
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -28,10 +28,5 @@ public class ProductServiceImpl implements ProductService {
   public Page<Product> getProducts(Specification<Product> spec, Pageable pageable) {
     return productRepository.findAll(spec, pageable);  // Usamos el Pageable para paginar
   }
-
-//  @Override
-//  public List<Product> getProducts(Specification spec) {
-//    return productRepository.findAll(spec);
-//  }
 
 }
