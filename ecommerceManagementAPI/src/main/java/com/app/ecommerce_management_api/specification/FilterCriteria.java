@@ -2,7 +2,7 @@ package com.app.ecommerce_management_api.specification;
 
 import lombok.Getter;
 import lombok.Setter;
-
+//comment
 @Getter
 @Setter
 public class FilterCriteria {

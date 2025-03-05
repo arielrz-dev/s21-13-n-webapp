@@ -7,7 +7,7 @@ import { Poppins } from "next/font/google";
 import ProductCard from "../../components/ProductCard";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600"] });
-const IMAGE_BASE_URL = "https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/images/";
+
 
 type Product = {
   id: number;
@@ -47,7 +47,7 @@ export default function Carousel() {
 
   useEffect(() => {
     //https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/products
-    fetch("https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/v1/products") // Reemplaza con tu API real
+    fetch("https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/v1/products?sort=id") // Reemplaza con tu API real
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.content);
@@ -70,7 +70,7 @@ export default function Carousel() {
   };
 
   return (
-    <div className={`${poppins.className} relative w-full flex justify-center items-center`}>
+    <div className={`${poppins.className} relative w-full max-w-full flex justify-center items-center`}>
       {/* <div className="absolute bg-black bg-opacity-50 min-h-10 w-full rounded-3xl text-center"></div> */}
       
       {/* Botón Izquierdo */}
@@ -89,7 +89,7 @@ export default function Carousel() {
             id={product.id}
             name={product.name}
             price={product.price}
-            image={`${IMAGE_BASE_URL}${product.imageUrl}`}
+            image={product.imageUrl}
             description={product.description}
           />
         ))}

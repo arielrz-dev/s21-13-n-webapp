@@ -4,7 +4,7 @@ import com.app.ecommerce_management_api.model.Cart;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
-
+//comment
 public interface CartService {
   void save(Cart cart);
 

@@ -13,9 +13,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
-      fontFamily: {
-        adlam: ['ADLaM Display', 'sans-serif'],
-      },
+      // fontFamily: {
+      //   adlam: ['ADLaM Display', 'sans-serif'],
+      // },
     },
   },
   plugins: [
@@ -50,6 +50,7 @@ export default {
           // "success-content": "#000900",
           // "warning-content": "#160600",
           // "error-content": "#140102",
+        
         },
       },
       "light",

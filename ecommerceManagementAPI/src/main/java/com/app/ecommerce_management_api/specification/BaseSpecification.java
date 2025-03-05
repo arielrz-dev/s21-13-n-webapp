@@ -9,7 +9,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//comment
 public abstract class BaseSpecification<T> implements Specification<T> {
 
   protected List<Predicate> buildPredicates(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder, List<FilterCriteria> criteriaList) {
