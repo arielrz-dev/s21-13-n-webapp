@@ -4,7 +4,7 @@ import ProductList from '@/components/Products/ProductList'
 
 export default function ProductPage() {
   return (
-    <div>ProductPage
+    <div className='text-center'>Product Page
         {/* <ProductCard
         id= {1}
         image="/images/limon.jpg"
