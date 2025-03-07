@@ -6,12 +6,12 @@ type ProductCardProps = {
   id: number;
   name: string;
   price: number;
-  image: string;
+  imageUrl: string;
  
 };
 
-const ProductCard = ({ id, name, price, image}: ProductCardProps) => {
-  const [imgSrc, setImgSrc] = useState(image);
+const ProductCard = ({ id, name, price, imageUrl}: ProductCardProps) => {
+  const [imgSrc, setImgSrc] = useState(imageUrl);
 
   // const addToCart = () => {
   //   console.log(`Producto ${id} agregado al carrito. ${name} - ${price}`);
