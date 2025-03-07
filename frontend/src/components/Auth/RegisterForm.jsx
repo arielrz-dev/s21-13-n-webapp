@@ -1,11 +1,12 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "../UI/Input";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-
+import { IoIosRefresh } from "react-icons/io"; // Para el spinner
 
 export function RegisterForm({ setCurrentForm }) {
+  const [isSubmitting, setIsSubmitting] = useState(false); // Estado para controlar el envío
   const {
     register,
     handleSubmit,
@@ -15,6 +16,7 @@ export function RegisterForm({ setCurrentForm }) {
   // Manejamos el envío del formulario
   const onSubmit = async (data) => {
     console.log("Datos enviados:", data);
+    setIsSubmitting(true); // Inicia el envío
 
     try {
       const response = await fetch(
@@ -32,19 +34,21 @@ export function RegisterForm({ setCurrentForm }) {
         const result = await response.json();
         console.log("Registro exitoso:", result);
 
-        // Luego podemos redirigir al usuario a la página de inicio de sesión
-
+        // Cambia el formulario a 'login'
+        setCurrentForm("login");
       } else {
         console.error("Error en el registro");
       }
     } catch (error) {
       console.error("Error en la conexión:", error);
+    } finally {
+      setIsSubmitting(false); // Termina el envío, ya sea con éxito o error
     }
   };
 
   return (
     <div>
-      <h3 className="text-lg font-bold text-center text-pink-700 lg:text-3xl">CREAR CUENTA</h3>
+      <h3 className="text-lg font-bold text-center text-pink-700 lg:text-3xl">Crear Cuenta</h3>
       <form onSubmit={handleSubmit(onSubmit)} className="py-4">
         <Input
           id="username"
@@ -79,8 +83,20 @@ export function RegisterForm({ setCurrentForm }) {
           errorMessage={errors.password && errors.password.message}
           placeholder="•••••••"
         />
-        <button type="submit" className="btn w-full bg-pink-600 text-white hover:bg-pink-700">
-          REGISTRAME
+        <button
+          type="submit"
+          className="btn w-full bg-pink-600 text-white hover:bg-pink-700"
+          disabled={isSubmitting} // Deshabilita el botón mientras se está enviando
+        >
+          {isSubmitting ? (
+            <span className="flex items-center justify-center text-pink-600">
+              <IoIosRefresh className="animate-spin mr-2" />
+              Registrando...
+            </span>
+
+          ) : (
+            "REGISTRAME"
+          )}
         </button>
       </form>
 

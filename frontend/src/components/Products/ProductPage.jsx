@@ -4,13 +4,7 @@ import ProductList from '@/components/Products/ProductList'
 
 export default function ProductPage() {
   return (
-    <div className='text-center'>Product Page
-        {/* <ProductCard
-        id= {1}
-        image="/images/limon.jpg"
-        name="Limón"
-        price= {200.5}
-        /> */}
+    <div>
         <ProductList/>
     </div>
   )

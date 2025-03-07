@@ -4,10 +4,9 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Poppins } from "next/font/google";
-import ProductCard from "../../components/ProductCard";
+import { SkeletonCard, ProductCard } from "../../components/ProductCard";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600"] });
-
 
 type Product = {
   id: number;
@@ -20,39 +19,41 @@ type Product = {
 export default function Carousel() {
   const [products, setProducts] = useState<Product[]>([]);
   const [isSliderReady, setIsSliderReady] = useState(false);
+  const [loading, setLoading] = useState(true); // Estado de carga
 
-  const [sliderRef, instanceRef] = useKeenSlider(
-    {
-      loop: products.length >= 1, // Siempre habilita el loop si hay al menos un producto
-      slides: { 
-        perView: "auto", 
-        spacing: 5 
+  const [sliderRef, instanceRef] = useKeenSlider({
+    loop: products.length >= 1, // Siempre habilita el loop si hay al menos un producto
+    slides: {
+      perView: "auto",
+      spacing: 5,
+    },
+    breakpoints: {
+      "(min-width: 360px)": {
+        slides: { perView: 1.2, spacing: 5 },
       },
-      breakpoints: {
-        "(min-width: 375px)": {
-          slides: { perView: 1.2, spacing: 5 }
-        },
-        "(min-width: 640px)": {
-          slides: { perView: 2.3, spacing: 5 }
-        },
-        "(min-width: 1024px)": {
-          slides: { perView: 4, spacing: 5 }
-        }
+      "(min-width: 375px)": {
+        slides: { perView: 1.2, spacing: 5 },
       },
-      slideChanged() {
-        console.log("El slide ha cambiado");
+      "(min-width: 640px)": {
+        slides: { perView: 2.3, spacing: 5 },
       },
-    }
-  );
+      "(min-width: 1024px)": {
+        slides: { perView: 4, spacing: 5 },
+      },
+    },
+    slideChanged() {
+      console.log("El slide ha cambiado");
+    },
+  });
 
   useEffect(() => {
-    //https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/products
-    fetch("https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/v1/products?sort=id") // Reemplaza con tu API real
+    fetch("https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/v1/products?sort=id") //  API real
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.content);
+        setLoading(false); 
         if (instanceRef.current) {
-          setIsSliderReady(true); // Marcar como listo una vez que los productos se han cargado
+          setIsSliderReady(true); //los productos se han cargado
         }
       });
   }, []);
@@ -70,9 +71,9 @@ export default function Carousel() {
   };
 
   return (
-    <div className={`${poppins.className} relative w-full max-w-full flex justify-center items-center`}>
-      {/* <div className="absolute bg-black bg-opacity-50 min-h-10 w-full rounded-3xl text-center"></div> */}
-      
+    <div
+      className={`${poppins.className} relative w-full max-w-full flex justify-center items-center`}
+    >
       {/* Botón Izquierdo */}
       <button
         onClick={goToPrevious}
@@ -82,17 +83,28 @@ export default function Carousel() {
       </button>
 
       {/* Carrusel */}
-      <div ref={sliderRef} className="keen-slider w-full flex justify-between items-center mx-12">
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            id={product.id}
-            name={product.name}
-            price={product.price}
-            image={product.imageUrl}
-            description={product.description}
-          />
-        ))}
+      <div
+        ref={sliderRef}
+        className="keen-slider w-full flex justify-between items-center mx-12"
+      >
+        {loading ? (
+          // muestra un espacio con skeletons
+          Array(4)
+            .fill(0)
+            .map((_, index) => <SkeletonCard key={index} />)
+        ) : (
+          //  muestra los productos reales
+          products.map((product) => (
+            <ProductCard
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              price={product.price}
+              image={product.imageUrl}
+              description={product.description}
+            />
+          ))
+        )}
       </div>
 
       {/* Botón Derecho */}

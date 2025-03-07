@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import AnimatedWrapper from "./AnimatedWrapper";
 
 
 import { ToastContainer } from 'react-toastify';
@@ -40,7 +41,8 @@ export default function RootLayout({
         // className={`${poppins.variable} antialiased`}
       >
         <Navbar />
-        {children}
+        {/* {children} */}
+        <AnimatedWrapper>{children}</AnimatedWrapper>
         <ToastContainer />
         <Footer/>
 

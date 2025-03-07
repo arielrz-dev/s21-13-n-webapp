@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaUserLarge } from "react-icons/fa6";
 import Input from "../UI/Input";
@@ -7,10 +7,11 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 import Link from "next/link";
 import useAuthStore from "@/store/authStore"; // Importamos el store
 import { useRouter } from "next/navigation"; // Importamos useRouter
-import LoginBtnGoogle from "../UI/LoginBtnGoogle";
-
+import { IoIosRefresh } from "react-icons/io"; // Importamos el spinner
+import { div, span } from "framer-motion/client";
 
 export function LoginForm({ setCurrentForm }) {
+  const [isSubmitting, setIsSubmitting] = useState(false); // Estado para controlar el envío
   const {
     register,
     handleSubmit,
@@ -23,6 +24,7 @@ export function LoginForm({ setCurrentForm }) {
   // Manejamos el envío del formulario
   const onSubmit = async (data) => {
     console.log("Datos enviados:", data);
+    setIsSubmitting(true); // Inicia el envío
 
     try {
       const response = await fetch(
@@ -39,16 +41,18 @@ export function LoginForm({ setCurrentForm }) {
       if (response.ok) {
         const result = await response.json();
         console.log("Login exitoso:", result.jwtToken);
-        // --------------
+
         login(result.jwtToken); // Guardamos el token en Zustand y Cookies
 
         // Redirigimos al usuario 
-        router.push("/profile"); //  redirigir a profile
+        router.push("/profile"); // Redirigir a profile
       } else {
         console.error("Error al iniciar sesión");
       }
     } catch (error) {
       console.error("Error en la conexión:", error);
+    } finally {
+      setIsSubmitting(false); // Termina el envío, ya sea con éxito o error
     }
   };
 
@@ -80,27 +84,28 @@ export function LoginForm({ setCurrentForm }) {
             ¿Olvidaste tu contraseña?
           </button>
         </div>
-        <button type="submit" className="btn w-full bg-pink-600 text-white hover:bg-pink-700">
-          INICIAR SESIÓN
+        <button
+          type="submit"
+          className="btn w-full bg-pink-600 text-white hover:bg-pink-700"
+          disabled={isSubmitting} // Deshabilita el botón mientras se está enviando
+        >
+          {isSubmitting ? (
+            <span className="flex items-center justify-center text-pink-600">
+              <IoIosRefresh className="animate-spin mr-2" />
+              Iniciando...
+            </span>
+          ) : (
+            "INICIAR SESIÓN"
+          )}
         </button>
       </form>
 
-
-
-
-
-      <div className="divider">
-        <span className="text-pink-500 font-semibold text-xl">O</span>
-      </div>
-      <div className="flex flex-col items-center mb-5">
-        <LoginBtnGoogle />
-
-      </div>
-
-
       <div className="text-center justify-around flex items-center">
         <span className="text-black text-sm">¿No tienes una cuenta?</span>
-        <button onClick={() => setCurrentForm("register")} className="font-semibold text-black hover:text-pink-700 underline">
+        <button
+          onClick={() => setCurrentForm("register")}
+          className="font-semibold text-black hover:text-pink-700 underline"
+        >
           Crear cuenta
         </button>
       </div>
