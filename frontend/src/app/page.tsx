@@ -1,4 +1,5 @@
 // import CarouselPrueba from "@/components/CarouselPrueba";
+"use client";
 import IceCreamCard from "@/components/UI/IceCreamCard";
 import Carousel from "@/components/UI/Carousel";
 import Subscribe from "@/components/UI/Subscribe";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <>
       <IceCreamCard />
+
       <div className="flex justify-center items-center lg:mt-16 lg:mx-28">
         <Carousel />
       </div>
@@ -17,9 +19,9 @@ export default function Home() {
       <div className="lg:mx-28 lg:mt-16">
         <DividerCard />
       </div>
-      
+
       <Subscribe />
-      
+
     </>
   );
 
