@@ -1,11 +1,12 @@
-import React from 'react'
-import ProductCard from '@/components/Products/ProductCard'
-import ProductList from '@/components/Products/ProductList'
+import React, { Suspense } from 'react';
+import ProductList from '@/components/Products/ProductList';
 
 export default function ProductPage() {
   return (
     <div>
-        <ProductList/>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ProductList />
+      </Suspense>
     </div>
-  )
+  );
 }
