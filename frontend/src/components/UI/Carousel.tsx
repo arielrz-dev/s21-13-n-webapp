@@ -20,6 +20,7 @@ export default function Carousel() {
   const [products, setProducts] = useState<Product[]>([]);
   const [isSliderReady, setIsSliderReady] = useState(false);
   const [loading, setLoading] = useState(true); // Estado de carga
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: products.length >= 1, // Siempre habilita el loop si hay al menos un producto
@@ -47,7 +48,7 @@ export default function Carousel() {
   });
 
   useEffect(() => {
-    fetch("https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/v1/products?sort=id") //  API real
+    fetch(`${API_BASE_URL}/products?sort=id`) //  API real
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.content);

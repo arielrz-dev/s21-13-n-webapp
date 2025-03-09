@@ -1,6 +1,9 @@
 "use client";
 import React, { useEffect } from "react";
+
 import useAuthStore from "@/store/authStore";
+import { fetchUserProfile } from "@/store/authStore";
+
 import Link from 'next/link';
 import DropdownMenu from './DropdownMenu';
 import Cart from './Cart';
@@ -19,27 +22,28 @@ export default function Navbar() {
     const { user, token } = useAuthStore(); // Obtenemos el usuario y el token
 
 
-    const fetchUserProfile = async () => {
-        const token = Cookies.get("token");
-        if (!token) return;
+    // const fetchUserProfile = async () => {
+    //     const token = Cookies.get("token");
+    //     if (!token) return;
     
-        try {
-          const response = await fetch("/api/profile", {
-            headers: { Authorization: `Bearer ${token}` },
-          });
+    //     try {
+    //       const response = await fetch("https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/v1/info", {
+    //         headers: { Authorization: `Bearer ${token}` },
+    //       });
     
-          if (response.ok) {
-            const userData = await response.json();
-            useAuthStore.getState().setUser(userData);
-          }
-        } catch (error) {
-          console.error("Error al obtener perfil:", error);
-        }
-      };
+    //       if (response.ok) {
+    //         const userData = await response.json();
+    //         useAuthStore.getState().setUser(userData);
+    //         console.log("Datos del usuario:", userData);
+    //       }
+    //     } catch (error) {
+    //       console.error("Error al obtener perfil:", error);
+    //     }
+    //   };
     
       useEffect(() => {
         if (token && !user) {
-          fetchUserProfile();
+          fetchUserProfile(); //funcion global
         }
       }, [token]);
 

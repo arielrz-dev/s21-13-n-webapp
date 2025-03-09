@@ -7,6 +7,7 @@ import { IoIosRefresh } from "react-icons/io"; // Para el spinner
 
 export function RegisterForm({ setCurrentForm }) {
   const [isSubmitting, setIsSubmitting] = useState(false); // Estado para controlar el envío
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
   const {
     register,
     handleSubmit,
@@ -19,8 +20,8 @@ export function RegisterForm({ setCurrentForm }) {
     setIsSubmitting(true); // Inicia el envío
 
     try {
-      const response = await fetch(
-        "https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/v1/register",
+      const response = await fetch(`${API_BASE_URL}/register`,
+        // "https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/v1/register",     
         {
           method: "POST",
           headers: {

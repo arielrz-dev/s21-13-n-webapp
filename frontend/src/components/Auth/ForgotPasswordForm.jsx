@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Input from "../UI/Input";
 
 export function ForgotPasswordForm({ setCurrentForm }) {
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
   const {
     register,
     handleSubmit,
@@ -15,8 +16,7 @@ export function ForgotPasswordForm({ setCurrentForm }) {
     console.log("Recuperar contraseña para:", data);
 
     try {
-      const response = await fetch(
-        "https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/v1/forgot-password",
+      const response = await fetch(`${API_BASE_URL}/forgot-password`,	
         {
           method: "POST",
           headers: {

@@ -6,6 +6,7 @@ import Input from "../UI/Input";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import Link from "next/link";
 import useAuthStore from "@/store/authStore"; // Importamos el store
+import { fetchUserProfile } from "@/store/authStore";
 import { useRouter } from "next/navigation"; // Importamos useRouter
 import { IoIosRefresh } from "react-icons/io"; // Importamos el spinner
 import { div, span } from "framer-motion/client";
@@ -20,6 +21,7 @@ export function LoginForm({ setCurrentForm }) {
 
   const login = useAuthStore((state) => state.login); // Obtenemos la función login
   const router = useRouter(); // Usamos el hook useRouter
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   // Manejamos el envío del formulario
   const onSubmit = async (data) => {
@@ -27,8 +29,7 @@ export function LoginForm({ setCurrentForm }) {
     setIsSubmitting(true); // Inicia el envío
 
     try {
-      const response = await fetch(
-        "https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/v1/authenticate",
+      const response = await fetch(`${API_BASE_URL}/authenticate`,
         {
           method: "POST",
           headers: {
@@ -43,6 +44,7 @@ export function LoginForm({ setCurrentForm }) {
         console.log("Login exitoso:", result.jwtToken);
 
         login(result.jwtToken); // Guardamos el token en Zustand y Cookies
+        await fetchUserProfile(); // Obtenemos los datos del usuario
 
         // Redirigimos al usuario 
         router.push("/profile"); // Redirigir a profile

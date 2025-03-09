@@ -14,7 +14,7 @@ export default function LoginModal() {
         console.log(data);
 
         try {
-            const response = await fetch('https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/v1/authenticate', {
+            const response = await fetch('https://intimate-chinchilla-equipo-s21-13-n-webapp-f92794e5.koyeb.app/api/v1/authenticate/borrar/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

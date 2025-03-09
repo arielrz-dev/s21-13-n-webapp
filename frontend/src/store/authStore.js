@@ -23,21 +23,22 @@ const useAuthStore = create((set) => ({
 }));
 
 export const fetchUserProfile = async () => {
-    const token = Cookies.get("token");
-    if (!token) return;
-  
-    try {
-      const response = await fetch("/api/profile", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-  
-      if (response.ok) {
-        const userData = await response.json();
-        useAuthStore.getState().setUser(userData); // Guardamos los datos del usuario
-      }
-    } catch (error) {
-      console.error("Error al obtener perfil:", error);
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const token = Cookies.get("token");
+  if (!token) return;
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/info`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    if (response.ok) {
+      const userData = await response.json();
+      useAuthStore.getState().setUser(userData); // Guardamos los datos del usuario
     }
-  };
+  } catch (error) {
+    console.error("Error al obtener perfil:", error);
+  }
+};
 
 export default useAuthStore;

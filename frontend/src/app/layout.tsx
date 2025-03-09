@@ -3,8 +3,6 @@ import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import AnimatedWrapper from "./AnimatedWrapper";
-
-
 import { ToastContainer } from 'react-toastify';
 import Footer from "@/components/UI/Footer";
 
@@ -45,8 +43,6 @@ export default function RootLayout({
         <AnimatedWrapper>{children}</AnimatedWrapper>
         <ToastContainer />
         <Footer/>
-
-        
 
       </body>
     </html>
