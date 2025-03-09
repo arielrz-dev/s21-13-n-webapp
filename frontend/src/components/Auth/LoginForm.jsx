@@ -10,6 +10,7 @@ import { fetchUserProfile } from "@/store/authStore";
 import { useRouter } from "next/navigation"; // Importamos useRouter
 import { IoIosRefresh } from "react-icons/io"; // Importamos el spinner
 import { div, span } from "framer-motion/client";
+import {toast} from "react-toastify";
 
 export function LoginForm({ setCurrentForm }) {
   const [isSubmitting, setIsSubmitting] = useState(false); // Estado para controlar el envío
@@ -25,7 +26,7 @@ export function LoginForm({ setCurrentForm }) {
 
   // Manejamos el envío del formulario
   const onSubmit = async (data) => {
-    console.log("Datos enviados:", data);
+    // console.log("Datos enviados:", data);
     setIsSubmitting(true); // Inicia el envío
 
     try {
@@ -42,14 +43,16 @@ export function LoginForm({ setCurrentForm }) {
       if (response.ok) {
         const result = await response.json();
         console.log("Login exitoso:", result.jwtToken);
+        toast.success("Bienvenido, " + data.username);
 
         login(result.jwtToken); // Guardamos el token en Zustand y Cookies
         await fetchUserProfile(); // Obtenemos los datos del usuario
 
         // Redirigimos al usuario 
-        router.push("/profile"); // Redirigir a profile
+        //router.push("/profile"); // Redirigir a profile
       } else {
-        console.error("Error al iniciar sesión");
+        // console.error("Error al iniciar sesión");
+        toast.error("Error al iniciar sesión. Inténtalo de nuevo.");
       }
     } catch (error) {
       console.error("Error en la conexión:", error);

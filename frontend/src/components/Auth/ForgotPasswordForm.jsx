@@ -2,6 +2,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Input from "../UI/Input";
+import { toast } from "react-toastify";
 
 export function ForgotPasswordForm({ setCurrentForm }) {
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -28,14 +29,14 @@ export function ForgotPasswordForm({ setCurrentForm }) {
 
       if (response.ok) {
         console.log("Correo de recuperación enviado");
-        alert("Revisa tu correo para restablecer la contraseña");
+        toast.info("Revisa tu correo para restablecer la contraseña");
       } else {
         console.error("Error al enviar la solicitud");
-        alert("Hubo un problema, intenta nuevamente");
+        toast.error("Hubo un problema, intenta nuevamente");
       }
     } catch (error) {
       console.error("Error en la conexión:", error);
-      alert("No se pudo conectar con el servidor");
+      toast.error("No se pudo conectar con el servidor");
     }
   };
 

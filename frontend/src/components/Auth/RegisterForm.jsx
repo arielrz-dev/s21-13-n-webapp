@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Input from "../UI/Input";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { IoIosRefresh } from "react-icons/io"; // Para el spinner
+import { toast } from "react-toastify";
 
 export function RegisterForm({ setCurrentForm }) {
   const [isSubmitting, setIsSubmitting] = useState(false); // Estado para controlar el envío
@@ -33,12 +34,14 @@ export function RegisterForm({ setCurrentForm }) {
 
       if (response.ok) {
         const result = await response.json();
-        console.log("Registro exitoso:", result);
+        // console.log("Registro exitoso:", result);
+        toast.success("Registro exitoso");
 
-        // Cambia el formulario a 'login'
+        // Cambia el formulario 'login'
         setCurrentForm("login");
       } else {
-        console.error("Error en el registro");
+        // console.error("Error en el registro");
+        toast.error("Hubo un problema, intenta nuevamente");
       }
     } catch (error) {
       console.error("Error en la conexión:", error);

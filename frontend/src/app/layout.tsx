@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import AnimatedWrapper from "./AnimatedWrapper";
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 import Footer from "@/components/UI/Footer";
 
 const poppins = Poppins({
@@ -41,8 +42,8 @@ export default function RootLayout({
         <Navbar />
         {/* {children} */}
         <AnimatedWrapper>{children}</AnimatedWrapper>
-        <ToastContainer />
         <Footer/>
+        <ToastContainer />
 
       </body>
     </html>

@@ -1,12 +1,11 @@
-// import CarouselPrueba from "@/components/CarouselPrueba";
 "use client";
 import IceCreamCard from "@/components/UI/IceCreamCard";
 import Carousel from "@/components/UI/Carousel";
 import Subscribe from "@/components/UI/Subscribe";
 import DividerCard from "@/components/UI/DividerCard";
 
-
 export default function Home() {
+
 
   return (
     <>
@@ -21,8 +20,6 @@ export default function Home() {
       </div>
 
       <Subscribe />
-
     </>
   );
-
 }
