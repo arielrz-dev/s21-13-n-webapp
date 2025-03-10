@@ -1,5 +1,3 @@
-"use client";
-// import { IoMdCart } from "react-icons/io";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ButtonModal from "../Products/ButtonModal";
@@ -9,19 +7,14 @@ type ProductCardProps = {
   name: string;
   price: number;
   imageUrl: string;
-
+  description: string; // Añade la descripción del producto
 };
 
-const ProductCard = ({ id, name, price, imageUrl }: ProductCardProps) => {
+const ProductCard = ({ id, name, price, imageUrl, description }: ProductCardProps) => {
   const [imgSrc, setImgSrc] = useState(imageUrl);
 
-  // const addToCart = () => {
-  //   console.log(`Producto ${id} agregado al carrito. ${name} - ${price}`);
-  //   //  Zustand para manejar el carrito (luego pensar como hacerlo  )
-  // };
-
   const handleImageError = () => {
-    setImgSrc("/images/image-not-found.png"); // Imagen por defecto
+    setImgSrc("/images/image-not-found.png");
   };
 
   return (
@@ -34,11 +27,9 @@ const ProductCard = ({ id, name, price, imageUrl }: ProductCardProps) => {
             className="object-cover w-full h-full"
             onError={handleImageError}
           />
-
         </figure>
 
         <div className="card-body p-3 sm:p-4 pt-[2px]">
-          {/* <h2 className="card-title text-black line-clamp-2 min-h-[3.5rem]"> */}
           <motion.h2
             className="card-title text-black whitespace-nowrap"
             animate={{ x: ["100%", "-100%"] }}
@@ -47,23 +38,10 @@ const ProductCard = ({ id, name, price, imageUrl }: ProductCardProps) => {
             {name}
           </motion.h2>
           <span className="text-black">
-            apartir de ${price.toFixed(2)} 
+            a partir de ${price.toFixed(2)}
           </span>
 
-          {/* <div className="flex-row flex justify-between items-center">
-            <p className="text-xs sm:text-sm font-semibold text-pink-600 p-1 sm:p-2">${price.toFixed(2)}</p>
-            <button onClick={addToCart} className="text-pink-600 p-1 sm:p-2 rounded-full hover:bg-pink-100">
-              <IoMdCart size={16} />
-            </button>
-          </div> */}
-
-          {/* <button className="mx-4 bg-pink-600 text-white p-2 rounded-full hover:bg-pink-700" onClick={() => console.log(`Producto ${id} agregado al carrito. ${name} - ${price}`)}>
-            ver detalles
-          </button> */}
-
-          <ButtonModal id={id} />
-
-
+          <ButtonModal id={id} name={name} price={price} description={description} imageUrl={imageUrl} />
         </div>
       </div>
     </div>
