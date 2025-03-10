@@ -26,7 +26,7 @@ export default {
       {
         heladeria: {
           "color-scheme": "light",
-          "primary": "#e96d7b",
+          "primary": "#db2777", //"#e96d7b",
           "secondary": "#a991f7",
           "accent": "#66b1b3",
           "neutral": "#af4670",

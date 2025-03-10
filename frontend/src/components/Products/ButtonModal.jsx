@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import Counter from "./Counter";
 
 export default function ButtonModal({ id, name, price, description, imageUrl }) {
   const modalId = `product_modal_${id}`;
   const [imgSrc, setImgSrc] = useState(imageUrl);
+
+  const [productQuantity, setProductQuantity] = useState(1);
+
+  const handleQuantityChange = (newQuantity) => {
+    console.log('Nueva cantidad:', newQuantity);
+    setProductQuantity(newQuantity); // 
+  };
 
   const handleImageError = () => {
     setImgSrc("/images/image-not-found.png"); // Imagen por defecto
@@ -43,28 +51,38 @@ export default function ButtonModal({ id, name, price, description, imageUrl }) 
                 src={imgSrc}
                 alt={name}
                 onError={handleImageError} // Manejo de error
-                className="lg:h-[300px] lg:max-h-[300px] object-cover"
+                className="lg:h-[400px] lg:max-h-[400px] object-cover"
               />
             </figure>
             <div className="card-body lg:pt-0">
               <h2 className="card-title text-pink-600 font-extrabold lg:text-3xl">{name.toUpperCase()}</h2>
               <p className="text-gray-700 lg:text-lg">{description}</p>
               <p className="text-lg font-semibold text-pink-600">${price.toFixed(2)}</p>
+
+              <span className="mt-2">Tamaño</span>
+              <div className="flex flex-row gap-4">
+                <button className="btn rounded-full btn-sm bg-pink-600 text-white">500 ml</button>
+                <button className="btn rounded-full btn-sm bg-pink-600 text-white">1 Litro</button>
+              </div>
+
+              {/* <span className="mt-2">Cantidad</span>
+              <div className="join rounded-xl">
+                <button className="join-item btn btn-sm bg-pink-600 text-white hover:bg-pink-700 border-none">-</button>
+                <button className="join-item btn btn-sm bg-pink-600 text-white hover:bg-pink-700 border-none">1</button>
+                <button className="join-item btn btn-sm bg-pink-600 text-white hover:bg-pink-700 border-none">+</button>
+              </div> */}
+              <span className="mt-2">Cantidad</span>
+              <div className="flex justify-start mb-2">   
+                <Counter
+                  initialQuantity={productQuantity}
+                  onQuantityChange={handleQuantityChange}
+                />
+              </div>
+
+
               <div className="flex flex-col gap-4 items-center justify-center">
-
-                <button className="btn btn-wide bg-transparent rounded-full text-pink-600 border-pink-600 hover:bg-pink-700 hover:text-white"></button>
-
-
-                <label htmlFor="">Tamaño</label>
-                
-                <form className="filter">
-                  <input className="btn btn-square" type="reset" value="×" />
-                  <input className="btn" type="radio" name="frameworks" aria-label="Svelte" />
-                  <input className="btn" type="radio" name="frameworks" aria-label="Vue" />
-                </form>
-
-                <button className="btn btn-wide bg-transparent rounded-full text-pink-600 border-pink-600 hover:bg-pink-700 hover:text-white">Agregar al Carrito</button>
-                <button className="btn btn-wide bg-pink-600 rounded-full text-white border-pink-600 hover:bg-pink-700 hover:text-white">Comprar ahora</button>
+                <button className="btn btn-sm btn-wide bg-transparent rounded-full text-pink-600 border-pink-600 hover:bg-pink-700 hover:text-white">Agregar al Carrito</button>
+                <button className="btn btn-sm btn-wide bg-pink-600 rounded-full text-white border-pink-600 hover:bg-pink-700 hover:text-white">Comprar ahora</button>
                 <a className="link text-black hover:text-pink-500">Ver todos los detalles</a>
               </div>
             </div>

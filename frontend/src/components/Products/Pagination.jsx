@@ -7,7 +7,9 @@ const Pagination = ({ page, totalPages, handlePageChange }) => {
                 onClick={() => handlePageChange(page - 1)}>
                 «
             </button>
-            <button className="join-item btn" >Página {page + 1} de {totalPages}</button>
+            <button className="join-item btn" 
+            onClick={() => handlePageChange(0)}
+            >Página {page + 1} de {totalPages}</button>
             <button 
                 className="join-item btn bg-pink-400 text-white hover:bg-pink-600" 
                 disabled={page >= totalPages - 1} 
