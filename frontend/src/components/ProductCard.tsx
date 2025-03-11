@@ -1,5 +1,6 @@
 import { IoMdCart } from "react-icons/io";
 import { useState } from "react";
+import AddToCartButton from "@/components/Cart/AddToCartButton";
 
 type ProductCardProps = {
   id: number;
@@ -63,7 +64,9 @@ const ProductCard = ({ id, name, price, image, description }: ProductCardProps) 
               className="text-pink-600 p-1 sm:p-2 rounded-full hover:bg-pink-100"
             >
               <IoMdCart size={16} />
+              
             </button>
+            <AddToCartButton productId={id} />
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 
+
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600"] });
 
 export default function IceCreamCard() {
