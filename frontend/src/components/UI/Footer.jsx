@@ -1,6 +1,7 @@
 "use client"
 // import { Facebook, Instagram } from "lucide-react";
 import { ADLaM_Display, Poppins } from "next/font/google";
+import Link from 'next/link';
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 
@@ -41,8 +42,8 @@ export default function Footer() {
           <div>
             <h3 className="text-lg md:text-xl font-bold text-pink-500">Empresa</h3>
             <ul>
-              <li className="transition-colors cursor-pointer text-black">Sobre Nosotros</li>
-              <li className="transition-colors cursor-pointer text-black">Contáctanos</li>
+              <Link href="/abouts/" className="transition-colors cursor-pointer text-black">Sobre Nosotros</Link>
+              <Link href="/contact/" className="transition-colors cursor-pointer text-black">Contáctanos</Link>
               <li className="transition-colors cursor-pointer text-black">Productos</li>
             </ul>
           </div>
