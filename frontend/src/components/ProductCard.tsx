@@ -1,6 +1,7 @@
-import { IoMdCart } from "react-icons/io";
+// import { IoMdCart } from "react-icons/io";
 import { useState } from "react";
 import AddToCartButton from "@/components/Cart/AddToCartButton";
+
 
 type ProductCardProps = {
   id: number;
@@ -32,10 +33,10 @@ const SkeletonCard = () => (
 const ProductCard = ({ id, name, price, image, description }: ProductCardProps) => {
   const [imgSrc, setImgSrc] = useState(image);
 
-  const addToCart = () => {
-    console.log(`Producto ${id} agregado al carrito. ${name} - ${price}`);
-    //  Zustand para manejar el carrito (luego pensar como hacerlo  )
-  };
+  // const addToCart = () => {
+  //   console.log(`Producto ${id} agregado al carrito. ${name} - ${price}`);
+  //   //  Zustand para manejar el carrito (luego pensar como hacerlo  )
+  // };
 
   const handleImageError = () => {
     setImgSrc("/images/image-not-found.png"); // Imagen por defecto
@@ -59,14 +60,23 @@ const ProductCard = ({ id, name, price, image, description }: ProductCardProps) 
           <p className="text-[8px] sm:text-[10px] text-center">{description}</p>
           <div className="flex-row flex justify-between items-center">
             <p className="text-xs sm:text-sm font-semibold text-pink-600 p-1 sm:p-2">${price.toFixed(2)}</p>
-            <button
+            {/* <button
               onClick={addToCart}
               className="text-pink-600 p-1 sm:p-2 rounded-full hover:bg-pink-100"
             >
               <IoMdCart size={16} />
-              
-            </button>
-            <AddToCartButton productId={id} />
+
+            </button> */}
+            {/* <AddToCartButton productId={id} /> */}
+            <AddToCartButton
+              product={{
+                id,
+                name,
+                price,
+                description
+              }}
+              amount={1}
+            />
           </div>
         </div>
       </div>

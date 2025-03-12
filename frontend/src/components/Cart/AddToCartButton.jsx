@@ -1,62 +1,53 @@
 "use client";
+import { useState } from 'react';
+import useCartStore from '@/store/cartStore';
+import { IoMdCart } from 'react-icons/io';
+import {toast} from 'react-toastify';
 
-import { useState } from "react";
-import useAuthStore from "@/store/authStore";
-
-export default function AddToCartButton({ productId, quantity = 1 }) {
+export default function AddToCartButton({ product, amount = 1 }) {
   const [isLoading, setIsLoading] = useState(false);
-  const { token } = useAuthStore();
+  const addItem = useCartStore((state) => state.addItem);
 
   const handleAddToCart = async () => {
-    setIsLoading(true);
-    
-    try {
-      if (!token) {
-        // Aquí manejaremos después la lógica para carrito local
-        console.log("Usuario no autenticado - Guardando en carrito local");
-        return;
-      }
+    if (!product || !product.id) {
+      console.error('Invalid product data:', product);
+      return;
+    }
 
-      const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-      const response = await fetch(`${API_BASE_URL}/api/v1/cartItem/create`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          cartId: 1, // Esto debería ser el ID del carrito del usuario
-          productId,
-          amount: 8,
-        }),
+    setIsLoading(true);
+    try {
+      const productData = {
+        id: product.id,
+        name: product.name || 'Unknown Product',
+        price: product.price || 0,
+        description: product.description || '',
+      };
+
+      await addItem(productData, amount);
+      // Success notification can be added here 7
+      // toast.success('Producto agregado al carrito');
+      toast.success("Producto agregado al carrito", {
+        position: "top-right",
+        autoClose: 2000,
       });
 
-      if (!response.ok) {
-        throw new Error("Error al agregar al carrito");
-      }
-
-      // Aquí puedes agregar una notificación de éxito
-      console.log("Producto agregado al carrito exitosamente");
-
     } catch (error) {
-      console.error("Error:", error);
-      // Aquí puedes agregar una notificación de error
+      console.error('Error adding to cart:', error);
+      // Error notification can be added here
+      toast.error('Error al agregar al carrito');
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <button
-      onClick={handleAddToCart}
-      disabled={isLoading}
-      className="btn-xs btn-primary"
-    >
-      {isLoading ? (
-        <span>Agregando...</span>
-      ) : (
-        <span>Agregar al carrito</span>
-      )}
-    </button>
+        <button 
+            onClick={handleAddToCart}
+            disabled={isLoading}
+            className="text-pink-600 p-1 sm:p-2 rounded-full hover:bg-pink-100"
+        >
+            {isLoading ? <IoMdCart size={20} className='text-gray-800'/> : <IoMdCart size={20} />}
+        </button>
+
   );
 }
