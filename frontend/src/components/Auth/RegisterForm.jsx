@@ -37,6 +37,8 @@ export function RegisterForm({ setCurrentForm }) {
         // console.log("Registro exitoso:", result);
         toast.success("Registro exitoso");
 
+        //llamo a la funcuon crear carro
+
         // Cambia el formulario 'login'
         setCurrentForm("login");
       } else {
@@ -49,7 +51,7 @@ export function RegisterForm({ setCurrentForm }) {
       setIsSubmitting(false); // Termina el envío, ya sea con éxito o error
     }
   };
-
+// funcion crear carro
   return (
     <div>
       <h3 className="text-lg font-bold text-center text-pink-700 lg:text-3xl">Crear Cuenta</h3>
