@@ -2,75 +2,33 @@ import React from "react";
 
 export default function Page() {
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-white p-4">
-      <h1 className="text-2xl font-semibold text-center text-[#D23065]  pb-4 mb-2">
-        CONTÁCTANOS
-      </h1>
+    <div className="max-w-6xl mx-auto px-4 py-8">
+      <h1 className="text-3xl md:text-4xl font-extrabold text-center text-[#D23065] pb-6">
+        SOBRE NOSOTROS
+      </h1>      
 
-      <p className="mx-4 mb-4 text-black">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aut
-        deleniti laudantium, praesentium corrupti voluptates illum cupiditate
-        fugit eveniet, nemo voluptatibus doloribus exercitationem ipsum!
-        Laboriosam labore architecto aliquid commodi unde? Lorem ipsum dolor sit
-        amet consectetur adipisicing elit. Obcaecati aut deleniti laudantium,
-        praesentium corrupti voluptates illum cupiditate fugit eveniet, nemo
-        voluptatibus doloribus exercitationem ipsum! Labor
-      </p>
-      <div className="w-full max-w-md border border-[#D23065] bg-[#d2306613] bg-opacity-90 rounded-2xl shadow-lg p-6">
-        <form className="mt-6">
-          <div className="flex">
-            <div>
-              <label className="block font-semibold text-black">Nombre</label>
-              <input
-                type="text"
-                className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#28f1d5]"
-                placeholder="Tu Nombre"
-              />
-            </div>
-            <div>
-              <label className="block font-semibold text-black">Apellido</label>
-              <input
-                type="text"
-                className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#28f1d5]"
-                placeholder="Tu Nombre"
-              />
-            </div>
-          </div>
-          <div className="flex">
-            <div>
-              <label className="block font-semibold text-black">
-                Correo electronico
-              </label>
-              <input
-                type="text"
-                className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#28f1d5]"
-                placeholder="Tu Nombre"
-              />
-            </div>
-            <div>
-              <label className="block font-semibold text-black">
-                Numero de telefono
-              </label>
-              <input
-                type="text"
-                className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#28f1d5]"
-                placeholder="Tu Nombre"
-              />
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <label className="block font-semibold text-black">Contraseña</label>
-            <textarea
-              type=""
-              className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#28f1d5]"
-              placeholder="******"
-            />
-          </div>
-          <button className="w-full mt-6 bg-[#D23065] hover:bg-[#28f1d6bb] text-white font-semibold py-2 rounded-lg transition duration-300">
-            Enviar
-          </button>
-        </form>
+      <div className="flex flex-col md:flex-row items-center  p-8 ">
+        <div className="w-full h-full md:w-1/2 flex justify-center ">
+          <img 
+            src="about.jfif" 
+            alt="Descripción" 
+            className="rounded-xl  shadow-md"
+          />
+        </div>
+        <div className="w-full md:w-1/2 h-auto  justify-center px-6">
+          <p className="text-gray-700 text-md leading-relaxed">
+            En Fresko, convertimos cada antojo en una experiencia inolvidable. Somos una heladería argentina dedicada a la creación de helados artesanales elaborados con ingredientes de la más alta calidad. Nuestro compromiso es ofrecer sabores auténticos, texturas irresistibles y una experiencia única en cada bocado.
+          </p>
+          <p className="text-gray-700 text-md leading-relaxed mt-4">
+            Pero no nos detenemos ahí. En Fresko, llevamos la personalización al siguiente nivel, permitiéndote diseñar helados a tu medida, hechos con esmero para reflejar tus gustos y preferencias. Además, complementamos nuestra oferta con deliciosos postres, milkshakes cremosos y bebidas refrescantes, perfectos para cualquier ocasión.
+          </p>
+          <p className="text-gray-700 text-md leading-relaxed mt-4">
+            Cada producto que servimos es el resultado de pasión, dedicación y un profundo amor por lo artesanal. Creemos en el trabajo bien hecho, en la alegría de compartir y en el placer de disfrutar un buen helado. En Fresko, no solo vendemos helados, creamos momentos felices.
+          </p>
+          <p className="text-gray-900 text-md font-bold mt-4">
+            ¡Déjate sorprender y ven a descubrir el sabor de la verdadera calidad!
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "framer-motion": "^12.4.10",
+    "framer-motion": "^12.5.0",
     "js-cookie": "^3.0.5",
     "keen-slider": "^6.8.6",
     "lucide-react": "^0.476.0",
