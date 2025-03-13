@@ -20,7 +20,7 @@ export default function Footer() {
     >
       {/* Sección de información */}
       <div className="w-full md:w-[45%] rounded-[25px] md:rounded-none md:rounded-r-[25px] bg-[#d9f99def] drop-shadow-[10px_0px_5px_rgba(0,0,0,0.3)] p-4 md:p-6 m-0">
-        <h1 className={`${adlamDisplay.className} text-center text-5xl md:text-8xl font-bold`}>
+        <h1 className={`${adlamDisplay.className} text-center text-4xl md:text-7xl font-bold`}>
           <span className="text-gray-800">FRES</span>
           <span className="text-pink-500">KO</span>
         </h1>
@@ -42,8 +42,8 @@ export default function Footer() {
           <div>
             <h3 className="text-lg md:text-xl font-bold text-pink-500">Empresa</h3>
             <ul>
-              <Link href="/abouts/" className="transition-colors cursor-pointer text-black">Sobre Nosotros</Link>
-              <Link href="/contact/" className="transition-colors cursor-pointer text-black">Contáctanos</Link>
+              <Link href="/abouts/" className="transition-colors cursor-pointer text-black ">Sobre Nosotros</Link>
+              <Link href="/contact/" className="transition-colors cursor-pointer text-black block">Contáctanos</Link>
               <li className="transition-colors cursor-pointer text-black">Productos</li>
             </ul>
           </div>
