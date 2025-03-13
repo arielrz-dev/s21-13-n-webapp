@@ -1,19 +1,19 @@
 "use client";
-import React from 'react'
+import React from 'react';
 
 export default function Ayuda() {
-return (
-    <div className="min-h-screen bg-white flex justify-center items-center p-6">
-      <div className=" w-[80%] bg-white shadow-lg rounded-2xl p-6">
+  return (
+    <div className="bg-white flex justify-center items-center p-6">
+      <div className="w-full bg-white rounded-2xl p-6">
         <h1 className="text-3xl md:text-4xl font-bold text-pink-600 text-center mb-6">
           Guía de Uso – Heladería Fresko
         </h1>
         <p className="text-gray-700 mb-6">
-        Bienvenido a Fresko, tu tienda en línea de helados. Aquí te explicamos cómo navegar en la página y realizar tu compra de manera fácil y rápida.
+          Bienvenido a Fresko, tu tienda en línea de helados. Aquí te explicamos cómo navegar en la página y realizar tu compra de manera fácil y rápida.
         </p>
 
-        {/* Secciones de la guía */}
-        <div className="space-y-6">
+        {/* Contenedor del contenido con altura máxima y scroll */}
+        <div className="space-y-6 max-h-[70vh] overflow-y-auto">
           <section>
             <h2 className="text-xl font-bold text-pink-600 mb-2">1. Registro e Inicio de Sesión</h2>
             <p className="text-gray-700 mb-2">Para una mejor experiencia, puedes crear una cuenta o iniciar sesión en la plataforma:</p>
@@ -69,21 +69,21 @@ return (
             <h2 className="text-xl font-bold text-pink-600 mb-2">5. Proceso de Pago</h2>
             <p className="text-gray-700 mb-2">Dependiendo de si estás logueado o compras como invitado, se te pedirá distinta información:</p>
             <ol className='list-disc list-inside text-gray-700 pl-4'>
-                <li>Si estás logueado: Tus datos de contacto y dirección ya estarán guardados, por lo que el proceso será más rápido.</li>
-                <li>Si no estás logueado: Se te solicitarán los siguientes datos:</li>
-                  <ol className='list-disc list-inside text-gray-700 pl-6'>
-                  <li className='mt-2'>Nombre completo</li>
-                  <li>Número de teléfono</li>
-                  <li className='mb-2'>Dirección de entrega</li>
-                </ol>
+              <li>Si estás logueado: Tus datos de contacto y dirección ya estarán guardados, por lo que el proceso será más rápido.</li>
+              <li>Si no estás logueado: Se te solicitarán los siguientes datos:</li>
+              <ol className='list-disc list-inside text-gray-700 pl-6'>
+                <li className='mt-2'>Nombre completo</li>
+                <li>Número de teléfono</li>
+                <li className='mb-2'>Dirección de entrega</li>
               </ol>
-              <p className="text-gray-700 ">Una vez completados los datos:</p>
-              <ol className="list-decimal list-inside text-gray-700 pl-4">
+            </ol>
+            <p className="text-gray-700 ">Una vez completados los datos:</p>
+            <ol className="list-decimal list-inside text-gray-700 pl-4">
               <li>Selecciona el método de entrega:</li>
-                <ol className='list-disc list-inside text-gray-700 pl-6'>
-                  <li className='mt-2'>Recoger en tienda: Puedes visitar nuestro local y retirar tu pedido sin costo adicional.</li>
-                  <li className='mb-2'>Delivery: Te enviaremos tu pedido a la dirección indicada (puede tener un costo adicional).</li>
-                </ol>
+              <ol className='list-disc list-inside text-gray-700 pl-6'>
+                <li className='mt-2'>Recoger en tienda: Puedes visitar nuestro local y retirar tu pedido sin costo adicional.</li>
+                <li className='mb-2'>Delivery: Te enviaremos tu pedido a la dirección indicada (puede tener un costo adicional).</li>
+              </ol>
               <li>Elige el método de pago disponible.</li>
               <li>Confirma tu pedido haciendo clic en "Realizar pago".</li>
             </ol>
@@ -115,7 +115,6 @@ return (
             <p className="text-gray-700">Si necesitas ayuda adicional, puedes contactarnos a través de:</p>
             <p className="text-gray-700">📧 Correo: soporte@fresko.com</p>
             <p className="text-gray-700">📞 Teléfono: +54 9 11 9999-9999</p>
-
           </section>
         </div>
       </div>

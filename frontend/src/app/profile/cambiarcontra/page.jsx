@@ -4,149 +4,53 @@ import React from 'react'
 
 export default function Cambiarcontra() {
   return (
-    <div className=" flex flex-row w-[90%] h-auto mx-auto my-10 gap-10">
-    <div className="flex flex-col w-1/3 bg-white rounded-2xl py-2 px-2">
+<div>
+  <div className="w-full md:w-3/3 bg-white rounded-xl">
+    {/* Título */}
+    <div className="w-full h-auto bg-pink-600 text-white text-base md:text-xl font-bold rounded-t-xl p-1 pl-3 md:pl-6">
+      Cambiar contraseña
+    </div>
 
-      <div className="flex flex-row border-gray-400 border-b-2 py-4">
-        <div className="w-[100px] h-[100px] bg-pink-600 rounded-full items-center justify-center flex">
-          <img
-            src="/images/account.png"
-            alt="profile"
-            className="w-auto h-auto rounded-full"
+    {/* Contenido principal */}
+    <div className="text-gray-800 font-normal mx-2 md:mx-4 grid grid-cols-1 md:grid-cols-2 gap-2">
+      {/* Contraseña actual */}
+      <div className="col-span-1 md:col-span-2">
+        <h2 className="text-sm md:text-base mt-2">Contraseña actual</h2>
+        <input
+          type="text"
+          className="h-8 md:h-10 w-1/2 border-2 border-gray-500 rounded-lg bg-pink-50"
+        />
+      </div>
+
+      {/* Nueva contraseña y Repetir nueva contraseña en una fila */}
+      <div className="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-2">
+        <div>
+          <h2 className="text-sm md:text-base mt-2">Nueva contraseña</h2>
+          <input
+            type="text"
+            className="h-8 md:h-10 w-full border-2 border-gray-500 rounded-lg bg-pink-50"
           />
         </div>
-        <div className="flex flex-col mx-8 my-auto">
-          <h2 className="font-bold text-xl text-gray-400">Mi perfil</h2>
-          <h2 className="font-bold text-3xl text-black">
-            Nombre del usuario
-          </h2>
+        <div>
+          <h2 className="text-sm md:text-base mt-2">Repetir nueva contraseña</h2>
+          <input
+            type="text"
+            className="h-8 md:h-10 w-full border-2 border-gray-500 rounded-lg bg-pink-50"
+          />
         </div>
       </div>
-
-      <div className="border-gray-400 border-b-2">
-        <div className="flex flex-row mx-8 my-auto py-6 ">
-          <div className="w-[40px] h-[40px] rounded-full items-center justify-center flex ">
-            <img
-              src="/images/configured.png"
-              alt="account"
-              className="w-auto h-auto rounded-full"
-            />
-          </div>
-          <div className="flex flex-col mx-4 my-auto">
-            <h2 className="font-semibold text-2xl text-black cursor-pointer hover:underline">
-              <Link href="/profile/infocuenta">Información de la cuenta</Link>
-            </h2>
-          </div>
-        </div>
-      </div>
-
-      <div className="border-gray-400 border-b-2">
-        <div className="flex flex-row mx-8 my-auto py-6 ">
-          <div className="w-[40px] h-[40px] rounded-full items-center justify-center flex ">
-            <img
-              src="/images/contactodireccion.png"
-              alt="account"
-              className="w-auto h-auto rounded-full"
-            />
-          </div>
-          <div className="flex flex-col mx-4 my-auto">
-            <h2 className="font-semibold text-2xl text-black cursor-pointer hover:underline">
-                <Link href="/profile/contactodireccion">Contacto y dirección</Link>
-            </h2>
-          </div>
-        </div>
-      </div>
-
-      <div className="border-gray-400 border-b-2">
-        <div className="flex flex-row mx-8 my-auto py-6 ">
-          <div className="w-[40px] h-[40px] rounded-full items-center justify-center flex ">
-            <img
-              src="/images/mispedidos.png"
-              alt="account"
-              className="w-auto h-auto rounded-full"
-            />
-          </div>
-          <div className="flex flex-col mx-4 my-auto">
-            <h2 className="font-semibold text-2xl text-black cursor-pointer hover:underline">
-                <Link href="/profile">Mis pedidos</Link>
-            </h2>
-          </div>
-        </div>
-      </div>
-
-      <div className="border-gray-400 border-b-2">
-        <div className="flex flex-row mx-8 my-auto py-6 ">
-          <div className="w-[40px] h-[40px] rounded-full items-center justify-center flex ">
-            <img
-              src="/images/cambiarcontra.png"
-              alt="account"
-              className="w-auto h-auto rounded-full"
-            />
-          </div>
-          <div className="flex flex-col mx-4 my-auto">
-            <h2 className="font-semibold text-2xl text-black cursor-pointer hover:underline">
-                <Link href="/profile/cambiarcontra">Cambiar contraseña</Link>
-            </h2>
-          </div>
-        </div>
-      </div>
-
-      <div className="border-gray-400 border-b-2">
-        <div className="flex flex-row mx-8 my-auto py-6 ">
-          <div className="w-[40px] h-[40px] rounded-full items-center justify-center flex ">
-            <img
-              src="/images/ayuda.png"
-              alt="account"
-              className="w-auto h-auto rounded-full"
-            />
-          </div>
-          <div className="flex flex-col mx-4 my-auto">
-            <h2 className="font-semibold text-2xl text-black cursor-pointer hover:underline">
-                <Link href="/profile/ayuda">Centro de ayuda</Link>
-            </h2>
-          </div>
-        </div>
-      </div>
-
-      <div className="">
-        <div className="flex flex-row mx-8 my-auto py-6 ">
-          <div className="w-[40px] h-[40px] rounded-full items-center justify-center flex ">
-            <img
-              src="/images/eliminet.png"
-              alt="account"
-              className="w-auto h-auto rounded-full"
-            />
-          </div>
-          <div className="flex flex-col mx-4 my-auto">
-            <h2 className="font-semibold text-2xl text-black cursor-pointer hover:underline">
-                <Link href="/profile/eliminarcuenta">Eliminar tu cuenta</Link>
-            </h2>
-          </div>
-        </div>
-      </div>
-
     </div>
 
-    <div className="w-2/3 bg-white rounded-2xl">
-      <div className="w-full h-auto bg-pink-600 text-white text-4xl font-bold rounded-t-2xl p-2 pl-10">
-        Cambiar contraseña
-      </div>
-      <div className=" text-gray-800 font-normal mx-10 grid grid-cols-2 gap-4">
-        <div className="col-span-2">
-        <h2 className="text-3xl mt-8 mb-2">Contraseña actual</h2>
-        <input  type="text" className="h-16 w-full border-2 border-gray-500 rounded-2xl bg-pink-50"/>
-        </div>
-        <h2 className="text-3xl mt-2">Nueva contraseña</h2>
-        <h2 className="text-3xl mt-2">Repetir nueva contraseña</h2>
-        <input  type="text" className="h-16 border-2 border-gray-500 rounded-2xl bg-pink-50"/>
-        <input  type="text" className="h-16 border-2 border-gray-500 rounded-2xl bg-pink-50"/>
-      </div>
-
-      <div className="mx-10 flex flex-row gap-8">
-        <button className="bg-lime-500 text-white text-2xl font-semibold rounded-2xl p-4 px-20 mt-10">Aceptar</button>
-        <button className="bg-pink-600 text-white text-2xl font-bold rounded-2xl p-4 px-20 mt-10">Cancelar</button>
-      </div>
+    {/* Botones */}
+    <div className="mx-2 md:mx-4 flex flex-col md:flex-row gap-1 md:gap-2 mt-3 md:mt-4">
+      <button className="bg-lime-500 text-white text-sm md:text-base font-semibold rounded-lg p-1 md:p-2 w-full md:w-auto md:px-8">
+        Aceptar
+      </button>
+      <button className="bg-pink-600 text-white text-sm md:text-base font-bold rounded-lg p-1 md:p-2 w-full md:w-auto md:px-8">
+        Cancelar
+      </button>
     </div>
   </div>
+</div>
   );
 }
