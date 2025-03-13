@@ -28,23 +28,37 @@ export default function Footer() {
           <div>
             <h3 className="text-lg md:text-xl font-bold text-pink-500">Información</h3>
             <ul>
-              <li className="transition-colors cursor-pointer text-black">Sucursales</li>
-              <li className="transition-colors cursor-pointer text-black">Cómo Comprar</li>
+              <li className="transition-colors cursor-pointer text-black">
+                <Link href="/ubicacion">Ubicación</Link>
+              </li>
+
+
+              <li className="transition-colors cursor-pointer text-black">
+                <Link href="/profile/ayuda">Ayuda</Link>
+              </li>
+
+
             </ul>
           </div>
           <div>
             <h3 className="text-lg md:text-xl font-bold text-pink-500">Mis Cuentas</h3>
             <ul>
-              <li className="transition-colors cursor-pointer text-black">Mis Órdenes</li>
+              <li className="transition-colors cursor-pointer text-black">
+                <Link href="/profile">Mis Pedidos</Link>
+    
+                </li>
               <li className="transition-colors cursor-pointer text-black">Carrito de Compras</li>
             </ul>
           </div>
           <div>
             <h3 className="text-lg md:text-xl font-bold text-pink-500">Empresa</h3>
             <ul>
-              <Link href="/abouts/" className="transition-colors cursor-pointer text-black ">Sobre Nosotros</Link>
+              <Link href="/nosotros" className="transition-colors cursor-pointer text-black ">Sobre Nosotros</Link>
               <Link href="/contact/" className="transition-colors cursor-pointer text-black block">Contáctanos</Link>
-              <li className="transition-colors cursor-pointer text-black">Productos</li>
+              <li className="transition-colors cursor-pointer text-black">
+                <Link href="/menu">Productos</Link>
+                
+                </li>
             </ul>
           </div>
         </div>
@@ -56,11 +70,11 @@ export default function Footer() {
         <div className="flex gap-4 mt-2">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
             {/* <Facebook size={35} className="text-black transition-colors pd-2 bg-pink-500 rounded-full" /> */}
-            <FaFacebook size={45} className="text-pink-500 transition-colors"/>
+            <FaFacebook size={45} className="text-pink-500 transition-colors" />
           </a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
             {/* <Instagram size={35} className="text-pink-500 transition-colors" /> */}
-            <IoLogoInstagram size={45} className="text-pink-500 transition-colors"/>
+            <IoLogoInstagram size={45} className="text-pink-500 transition-colors" />
           </a>
         </div>
       </div>

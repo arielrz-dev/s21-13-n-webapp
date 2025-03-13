@@ -44,7 +44,7 @@ export default function UserAvatar() {
                 </li>
                 {/* <li><a className='hover:bg-pink-400'>{user.username}</a></li>
                 <li><a className='hover:bg-pink-400'>{user.role || ".."}</a></li> */}
-                <li><a className='hover:bg-pink-400'>Settings</a></li>
+                {/* <li><a className='hover:bg-pink-400'>Settings</a></li> */}
                 <li><a onClick={handleLogout} className='hover:bg-pink-400'>Logout</a></li>
             </ul>
         </div>

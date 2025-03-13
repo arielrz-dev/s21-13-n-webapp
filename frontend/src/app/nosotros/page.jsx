@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function AboutUs() {
   return (
-    <section className="container mx-auto px-4 py-12">
-      <h2 className="text-3xl font-bold text-center text-pink-600 mb-8">
+    <section className="px-20 py-14 bg-white w-full">
+      <h2 className="text-3xl font-bold text-center text-pink-600 pt-3 mb-5">
         SOBRE NOSOTROS
       </h2>
       <div className="flex flex-col md:flex-row items-center gap-8">
@@ -12,8 +12,8 @@ export default function AboutUs() {
           <Image
             src="/SODA.png" // Asegúrate de colocar la imagen en la carpeta public
             alt="Heladería Fresko"
-            width={600}
-            height={400}
+            width={500}
+            height={300}
             className="rounded-xl shadow-lg"
           />
         </div>

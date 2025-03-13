@@ -50,11 +50,12 @@ export default function Navbar() {
 
 
     const menuItems = [
-        { label: 'ORDENA ONLINE', href: '/' },
+        
         { label: 'MENÚ', href: '/menu' },
         { label: 'PROMOS', href: '/promos' },
         { label: 'UBICACIÓN', href: '/ubicacion' },
-        { label: 'UBICA TU ORDEN', href: '/' },
+        { label: 'SOBRE NOSOTROS', href: '/nosotros' },
+        { label: 'CONTÁCTANOS', href: '/contact' },
         // { 
         //     label: 'Menu', 
         //     href: '/menu', 
