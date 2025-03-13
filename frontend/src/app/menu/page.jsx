@@ -62,7 +62,7 @@ export default function page() {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-white mb-4 border-4 border-pink-600 rounded-xl flex flex-col md:flex-row items-center gap-6 shadow-lg">
+        <Link href="/product?type=Helado" className=" hover:cursor-pointer max-w-4xl mx-auto bg-white mb-4 border-4 border-pink-600 rounded-xl flex flex-col md:flex-row items-center gap-6 shadow-lg">
           <div className="w-full md:w-1/3">
             <img
               src="/images/menu-helados.jpg"
@@ -70,15 +70,15 @@ export default function page() {
               className="w-full rounded-lg"
             />
           </div>
-          <div className="w-full md:w-3/3">
+          <div className="w-full md:w-3/3 ">
             <h2 className="text-lg flex-wrap md:flex-nowrap md:text-xl md:gap-6 lg:text-2xl xl:text-2xl font-bold text-black">
               HELADOS
             </h2>
             <p className="text-pink-600 text-base flex-wrap md:flex-nowrap md:text-lg md:gap-6 lg:text-xl xl:text-xl font-bold ml-6">
-            Elige entre nuestros sabores exclusivos, creados para brindarte la mejor experiencia en cada porción.
+              Elige entre nuestros sabores exclusivos, creados para brindarte la mejor experiencia en cada porción.
             </p>
           </div>
-        </div>
+        </Link>
 
         <div className="max-w-4xl mx-auto bg-white mb-4 border-4 border-pink-600 rounded-xl flex flex-col md:flex-row items-center gap-6 shadow-lg">
           <div className="w-full md:w-1/3">
@@ -90,10 +90,10 @@ export default function page() {
           </div>
           <div className="w-full md:w-3/3">
             <h2 className="text-lg flex-wrap md:flex-nowrap md:text-xl md:gap-6 lg:text-2xl xl:text-2xl font-bold text-black">
-            POSTRES
+              POSTRES
             </h2>
             <p className="text-pink-600 text-base flex-wrap md:flex-nowrap md:text-lg md:gap-6 lg:text-xl xl:text-xl font-bold ml-6">
-            Elige entre nuestros postres exclusivos, creados para brindarte una experiencia deliciosa en cada bocado.
+              Elige entre nuestros postres exclusivos, creados para brindarte una experiencia deliciosa en cada bocado.
             </p>
           </div>
         </div>
@@ -108,10 +108,10 @@ export default function page() {
           </div>
           <div className="w-full md:w-3/3">
             <h2 className="text-lg flex-wrap md:flex-nowrap md:text-xl md:gap-6 lg:text-2xl xl:text-2xl font-bold text-black">
-            TORTAS
+              TORTAS
             </h2>
             <p className="text-pink-600 text-base flex-wrap md:flex-nowrap md:text-lg md:gap-6 lg:text-xl xl:text-xl font-bold ml-6">
-            Descubre nuestras tortas heladas, con la combinación perfecta de sabores y texturas para un placer refrescante en cada porción.
+              Descubre nuestras tortas heladas, con la combinación perfecta de sabores y texturas para un placer refrescante en cada porción.
             </p>
           </div>
         </div>
@@ -126,10 +126,10 @@ export default function page() {
           </div>
           <div className="w-full md:w-3/3">
             <h2 className="text-lg flex-wrap md:flex-nowrap md:text-xl md:gap-6 lg:text-2xl xl:text-2xl font-bold text-black">
-            MILKSHAKES
+              MILKSHAKES
             </h2>
             <p className="text-pink-600 text-base flex-wrap md:flex-nowrap md:text-lg md:gap-6 lg:text-xl xl:text-xl font-bold ml-6">
-            Explora nuestros milkshakes, con la mezcla perfecta de sabores y una textura cremosa para un placer refrescante en cada sorbo.
+              Explora nuestros milkshakes, con la mezcla perfecta de sabores y una textura cremosa para un placer refrescante en cada sorbo.
             </p>
           </div>
         </div>
@@ -144,10 +144,10 @@ export default function page() {
           </div>
           <div className="w-full md:w-3/3">
             <h2 className="text-lg flex-wrap md:flex-nowrap md:text-xl md:gap-6 lg:text-2xl xl:text-2xl font-bold text-black ">
-            BEBIDAS
+              BEBIDAS
             </h2>
             <p className="text-pink-600 text-base flex-wrap md:flex-nowrap md:text-lg md:gap-6 lg:text-xl xl:text-xl font-bold ml-6">
-            Descubre nuestras bebidas, preparadas con la combinación perfecta de sabores y una textura única para una experiencia deliciosa en cada trago.
+              Descubre nuestras bebidas, preparadas con la combinación perfecta de sabores y una textura única para una experiencia deliciosa en cada trago.
             </p>
           </div>
         </div>
@@ -162,10 +162,10 @@ export default function page() {
           </div>
           <div className="w-full md:w-3/3">
             <h2 className="text-lg flex-wrap md:flex-nowrap md:text-xl md:gap-6 lg:text-2xl xl:text-2xl font-bold text-black">
-            PROMOS
+              PROMOS
             </h2>
             <p className="text-pink-600 text-base flex-wrap md:flex-nowrap md:text-lg md:gap-6 lg:text-xl xl:text-xl font-bold ml-6">
-            Promos irresistibles para ti, para dos o para compartir. ¡Disfruta más por menos!
+              Promos irresistibles para ti, para dos o para compartir. ¡Disfruta más por menos!
             </p>
           </div>
         </div>
