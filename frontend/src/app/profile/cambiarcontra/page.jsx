@@ -22,7 +22,7 @@ export default function Cambiarcontra() {
         />
       </div>
 
-      {/* Nueva contraseña y Repetir nueva contraseña en una fila */}
+      {/* Nueva contraseña y Repetir nueva contraseña */}
       <div className="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-2">
         <div>
           <h2 className="text-sm md:text-base mt-2">Nueva contraseña</h2>

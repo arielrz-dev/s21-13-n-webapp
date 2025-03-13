@@ -16,7 +16,7 @@ export default function ProfileLayout({ children }) {
     { name: "Eliminar tu cuenta", path: "/profile/eliminarcuenta", icon: "/images/eliminet.png" },
   ];
 
-  // Verificar si la ruta actual es la página de ayuda
+ 
   const isHelpPage = router.pathname === "/profile/ayuda";
 
   return (

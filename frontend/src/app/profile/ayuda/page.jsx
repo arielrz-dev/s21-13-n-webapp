@@ -12,7 +12,7 @@ export default function Ayuda() {
           Bienvenido a Fresko, tu tienda en línea de helados. Aquí te explicamos cómo navegar en la página y realizar tu compra de manera fácil y rápida.
         </p>
 
-        {/* Contenedor del contenido con altura máxima y scroll */}
+        {/* Contenedor del contenido*/}
         <div className="space-y-6 max-h-[70vh] overflow-y-auto">
           <section>
             <h2 className="text-xl font-bold text-pink-600 mb-2">1. Registro e Inicio de Sesión</h2>

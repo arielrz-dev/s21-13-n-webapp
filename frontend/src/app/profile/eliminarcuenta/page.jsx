@@ -12,7 +12,7 @@ export default function Eliminarcuenta() {
 
     {/* Contenido principal */}
     <div className="text-gray-800 font-normal mx-2 md:mx-4 grid grid-cols-1 md:grid-cols-2 gap-2 my-3 md:my-4">
-      {/* Correo electrónico y Contraseña en una fila */}
+      {/* Correo electrónico y Contraseña*/}
       <div className="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-2">
         <div>
           <h2 className="text-sm md:text-base mt-2">Ingresar correo electrónico</h2>
