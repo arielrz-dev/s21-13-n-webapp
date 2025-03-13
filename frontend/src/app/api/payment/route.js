@@ -1,26 +1,28 @@
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
-  const body = await req.json();
-
-  const preference = {
-    items: [
-      {
-        title: `Helado ${body.size}`,
-        quantity: 1,
-        unit_price: body.price,
-        currency_id: "ARS",
-      },
-    ],
-    back_urls: {
-      success: "http://localhost:3000/success",
-      failure: "http://localhost:3000/failure",
-      pending: "http://localhost:3000/pending",
-    },
-    auto_return: "approved",
-  };
-
   try {
+    const body = await req.json();
+    
+    if (!body.items || body.items.length === 0) {
+      return NextResponse.json({ error: "El carrito está vacío." }, { status: 400 });
+    }
+    
+    const preference = {
+      items: body.items.map(item => ({
+        title: item.productName,
+        quantity: item.amount,
+        unit_price: item.productPrice,
+        currency_id: "ARS",
+      })),
+      back_urls: {
+        success: "http://localhost:3000/success",
+        failure: "http://localhost:3000/failure",
+        pending: "http://localhost:3000/pending",
+      },
+      auto_return: "approved",
+    };
+
     const res = await fetch("https://api.mercadopago.com/checkout/preferences", {
       method: "POST",
       headers: {
@@ -31,9 +33,14 @@ export async function POST(req) {
     });
 
     const data = await res.json();
+    
+    if (!res.ok) {
+      throw new Error(data.message || "Error al crear la preferencia de pago");
+    }
+
     return NextResponse.json({ init_point: data.init_point });
   } catch (error) {
-    console.error("Error creando pago:", error);
+    console.error("Error procesando el pago del carrito:", error);
     return NextResponse.json({ error: "Error al procesar el pago" }, { status: 500 });
   }
 }
