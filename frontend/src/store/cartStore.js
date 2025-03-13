@@ -14,7 +14,7 @@ const useCartStore = create(
         set({ isLoading: true, error: null });
         
         try {
-          if (token) {
+          if (false) {
             const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/cartItem/create`, {
               method: 'POST',
               headers: {
@@ -68,7 +68,7 @@ const useCartStore = create(
         set({ isLoading: true, error: null });
         
         try {
-          if (token) {
+          if (false) {
             const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/cartItem/${productId}`, {
               method: 'DELETE',
               headers: {
@@ -98,7 +98,7 @@ const useCartStore = create(
         set({ isLoading: true, error: null });
         
         try {
-          if (token) {
+          if (false) {
             const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/cartItem/${productId}`, {
               method: 'PUT',
               headers: {
@@ -131,7 +131,7 @@ const useCartStore = create(
         const token = Cookies.get("token");
         set({ isLoading: true, error: null });
         
-        if (token) {
+        if (false) {
           try {
             const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/cartItem/cart/1`, {
               headers: {

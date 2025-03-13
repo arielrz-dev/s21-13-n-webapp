@@ -4,7 +4,7 @@ import useCartStore from '@/store/cartStore';
 import { IoMdCart } from 'react-icons/io';
 import { toast } from 'react-toastify';
 
-export default function AddToCartButton({ product, amount = 1 }) {
+export default function AddToCartButton2({ product, amount = 1 }) {
   const [isLoading, setIsLoading] = useState(false);
   const addItem = useCartStore((state) => state.addItem);
 
@@ -51,10 +51,12 @@ export default function AddToCartButton({ product, amount = 1 }) {
     <button
       onClick={handleAddToCart}
       disabled={isLoading}
-      className="text-pink-600 p-1 sm:p-2 rounded-full hover:bg-pink-100"
+      className={`btn btn-sm btn-wide rounded-full border-pink-600 ${isLoading
+          ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+          : "bg-transparent text-pink-600 hover:bg-pink-700 hover:text-white"
+        }`}
     >
-      {isLoading ? <IoMdCart size={20} className='text-gray-800' /> : <IoMdCart size={20} />}
+      {isLoading ? "Cargando..." : "Agregar al Carrito"}
     </button>
-
   );
 }

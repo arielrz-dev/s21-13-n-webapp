@@ -16,9 +16,9 @@ export async function POST(req) {
         currency_id: "ARS",
       })),
       back_urls: {
-        success: "http://localhost:3000/success",
-        failure: "http://localhost:3000/failure",
-        pending: "http://localhost:3000/pending",
+        success: "https://heladeria-deploy.vercel.app/success",
+        failure: "https://heladeria-deploy.vercel.app/failure",
+        pending: "https://heladeria-deploy.vercel.app/pending",
       },
       auto_return: "approved",
     };

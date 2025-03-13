@@ -14,7 +14,7 @@ export default function Cart() {
 
     useEffect(() => {
         setIsMounted(true);
-        if (token) {
+        if (false) {
             fetchCartItems();
         }
     }, [token]);
