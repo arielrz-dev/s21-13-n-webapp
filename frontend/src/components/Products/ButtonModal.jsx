@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import Counter from "./Counter";
+import AddToCartButton2 from "../Cart/AddToCartButton2";
 
 export default function ButtonModal({ id, name, price, description, imageUrl }) {
   const modalId = `product_modal_${id}`;
@@ -25,9 +26,9 @@ export default function ButtonModal({ id, name, price, description, imageUrl }) 
 
       <input type="checkbox" id={modalId} className="modal-toggle" />
       <div className="modal max-w-full fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-        <div className="modal-box w-1/2  max-w-[80%] lg:max-w-1/3 p-6 bg-white rounded-lg shadow-lg">
+        <div className="modal-box w-1/2  max-w-[80%] lg:max-w-1/3 p-6 bg-white">
           <div className="flex justify-end">
-            <label htmlFor={modalId} className="text-pink-600 hover:text-pink-700">
+            <label htmlFor={modalId} className="text-pink-600 hover:text-pink-700 hover:cursor-pointer">
               <IoMdCloseCircleOutline size={26} />
             </label>
           </div>
@@ -45,13 +46,13 @@ export default function ButtonModal({ id, name, price, description, imageUrl }) 
           </div> */}
 
 
-          <div className="card lg:card-side bg-white shadow-sm">
-            <figure className="border-4 border-pink-600">
+          <div className="card lg:card-side bg-white ">
+            <figure className="">
               <img
                 src={imgSrc}
                 alt={name}
                 onError={handleImageError} // Manejo de error
-                className="lg:h-[400px] lg:max-h-[400px] object-cover"
+                className="lg:h-[400px] lg:max-h-[400px] object-cover rounded-xl"
               />
             </figure>
             <div className="card-body lg:pt-0">
@@ -59,11 +60,11 @@ export default function ButtonModal({ id, name, price, description, imageUrl }) 
               <p className="text-gray-700 lg:text-lg">{description}</p>
               <p className="text-lg font-semibold text-pink-600">${price.toFixed(2)}</p>
 
-              <span className="mt-2">Tamaño</span>
+              {/* <span className="mt-2">Tamaño</span>
               <div className="flex flex-row gap-4">
                 <button className="btn rounded-full btn-sm bg-pink-600 text-white">500 ml</button>
-                <button className="btn rounded-full btn-sm bg-pink-600 text-white">1 Litro</button>
-              </div>
+                <button className="btn rounded-full btn-sm bg-pink-600 text-white" disabled>1 Litro</button>
+              </div> */}
 
               {/* <span className="mt-2">Cantidad</span>
               <div className="join rounded-xl">
@@ -81,7 +82,8 @@ export default function ButtonModal({ id, name, price, description, imageUrl }) 
 
 
               <div className="flex flex-col gap-4 items-center justify-center">
-                <button className="btn btn-sm btn-wide bg-transparent rounded-full text-pink-600 border-pink-600 hover:bg-pink-700 hover:text-white">Agregar al Carrito</button>
+                <AddToCartButton2 product={{ id, name, price, description }} amount={productQuantity} />
+                {/* <button className="btn btn-sm btn-wide bg-transparent rounded-full text-pink-600 border-pink-600 hover:bg-pink-700 hover:text-white">Agregar al Carrito</button> */}
                 <button className="btn btn-sm btn-wide bg-pink-600 rounded-full text-white border-pink-600 hover:bg-pink-700 hover:text-white">Comprar ahora</button>
                 <a className="link text-black hover:text-pink-500">Ver todos los detalles</a>
               </div>

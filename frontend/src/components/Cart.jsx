@@ -1,20 +1,25 @@
 "use client";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { IoMdCart } from "react-icons/io";
 import useCartStore from '@/store/cartStore';
 import useAuthStore from '@/store/authStore';
 import { div } from 'framer-motion/client';
 import CartItem from '@/components/Cart/CartItem';
+import PayButton from '@/components/PayButton';
 
 export default function Cart() {
     const { items, fetchCartItems, getTotalItems, getTotalPrice } = useCartStore();
     const { token } = useAuthStore();
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        if (token) {
+        setIsMounted(true);
+        if (false) {
             fetchCartItems();
         }
     }, [token]);
+
+    if (!isMounted) return null
 
     const totalItems = getTotalItems();
     const totalPrice = getTotalPrice();
@@ -43,7 +48,8 @@ export default function Cart() {
                     </div>
                     <span className="text-info text-end font-semibold my-2">Total: ${totalPrice}</span>
                     <div className="card-actions">
-                        <button className="btn btn-primary btn-block">Ver carrito</button>
+                        {/* <button className="btn btn-primary btn-block">Ver carrito</button> */}
+                        <PayButton items={items} />
                     </div>
                 </div>
             </div>
